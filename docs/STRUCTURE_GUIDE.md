@@ -15,7 +15,7 @@ src/
 │   └── index.js     # Component registry
 ├── styles/          # CSS organization (existing)
 ├── utils/           # Utility functions
-└── main.js          # Application entry point
+└── app.main.js          # Application entry point
 
 tests/
 ├── unit/            # Unit tests

@@ -89,7 +89,7 @@ this._intersectionObserver = new IntersectionObserver((entries) => {
 - **`flow-scroll-to-top.js`**: New component for scroll button
 - **`flow-scroll-to-top.stories.js`**: Storybook stories and demos
 - **`index.html`**: Added scroll-to-top component
-- **`main.js`**: Event handling for both features
+- **`app.main.js`**: Event handling for both features
 
 ### **Event System:**
 

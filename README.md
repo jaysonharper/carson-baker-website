@@ -74,7 +74,6 @@ Visit `http://localhost:6006` to access the component library.
 ### Development
 
 - `npm run dev` - Start Vite dev server
-- `npm run dev:graceful` - Start dev server with graceful shutdown
 - `npm run dev:clean` - Clean cache and start dev server
 
 ### Building
@@ -218,7 +217,7 @@ The footer component provides a professional, mobile-responsive footer:
 │   │   ├── components/  # Component-specific styles
 │   │   ├── layout/      # Layout and animations
 │   │   └── utilities/   # Responsive and scroll utilities
-│   └── main.js          # Application entry point
+│   └── app.main.js          # Application entry point
 ├── index.html           # Main HTML file
 └── vite.config.js       # Vite configuration
 ```

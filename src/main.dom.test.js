@@ -17,7 +17,7 @@ describe("click behavior (DOM)", () => {
     await vi.resetModules();
 
     // Import the module after DOM is ready
-    await import("./main.js");
+    await import("./app.main.js");
 
     const app = document.getElementById("app");
     const btn = document.getElementById("btn");

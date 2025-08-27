@@ -9,18 +9,6 @@
       "webRoot": "${workspaceFolder}",
       "sourceMaps": true,
       "preLaunchTask": "start-dev-server",
-      "postDebugTask": "stop-dev-server-simple",
-      "runtimeArgs": ["--remote-debugging-port=9222"],
-      "skipFiles": ["<node_internals>/**"]
-    },
-    {
-      "type": "chrome",
-      "request": "launch",
-      "name": "Debug Vite App in Chrome (Keep Server)",
-      "url": "http://localhost:5173",
-      "webRoot": "${workspaceFolder}",
-      "sourceMaps": true,
-      "preLaunchTask": "start-dev-server",
       "runtimeArgs": ["--remote-debugging-port=9222"],
       "skipFiles": ["<node_internals>/**"]
     },
