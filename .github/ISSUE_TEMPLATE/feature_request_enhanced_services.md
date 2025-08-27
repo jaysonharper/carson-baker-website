@@ -140,7 +140,7 @@ Comprehensive enhancement of the services section with a complete CSS architectu
 
 - `index.html` - Enhanced services section structure
 - `src/styles/` - Complete modular CSS architecture
-- `src/main.js` - Development utilities added
+- `src/app.main.js` - Development utilities added
 
 **Supporting Updates:**
 

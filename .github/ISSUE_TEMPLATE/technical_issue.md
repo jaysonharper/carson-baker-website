@@ -55,7 +55,7 @@ Include relevant build output if applicable
 
 **Which files or components are involved?**
 
-- [ ] `src/main.js`
+- [ ] `src/app.main.js`
 - [ ] `src/styles/main.css`
 - [ ] `src/styles/components/` (component styles)
 - [ ] `src/components/flow-navbar.js`
