@@ -1,0 +1,42 @@
+/* Responsive Improvements */
+@media (max-width: 640px) {
+  .hero-title {
+    @apply text-4xl;
+  }
+
+  .hero-subtitle {
+    @apply text-lg;
+  }
+
+  .section-title {
+    @apply text-3xl;
+  }
+
+  .section-card {
+    @apply p-6;
+  }
+
+  .highlight-item[aria-expanded="true"] {
+    margin-bottom: 1rem;
+  }
+
+  .highlight-item {
+    min-height: auto;
+    /* Mobile-specific cross-browser fixes */
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+
+  .highlight-summary {
+    height: 6rem;
+    /* Ensure consistent mobile text rendering */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .service-features li {
+    @apply py-2;
+  }
+}

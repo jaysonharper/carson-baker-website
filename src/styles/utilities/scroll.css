@@ -1,0 +1,7 @@
+/* Smooth Scrolling Offset for Fixed Navbar */
+#services,
+#attorneys,
+#testimonials,
+#find-us {
+  scroll-margin-top: 80px;
+}

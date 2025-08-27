@@ -1,0 +1,10 @@
+@layer components {
+  /* Button Link Styling */
+  .button-link {
+    @apply text-inherit no-underline w-full h-full block;
+  }
+
+  .button-link:hover {
+    @apply text-inherit no-underline;
+  }
+}

@@ -1,0 +1,231 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "start-dev-server",
+      "type": "shell",
+      "command": "npm",
+      "args": ["run", "dev:graceful"],
+      "group": "build",
+      "isBackground": true,
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "presentation": {
+        "echo": true,
+        "reveal": "silent",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": false,
+        "clear": false,
+        "close": false
+      },
+      "problemMatcher": {
+        "owner": "vite",
+        "pattern": {
+          "regexp": "^(.*)$",
+          "file": 1
+        },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": "^.*VITE.*ready.*$",
+          "endsPattern": "^.*Local:.*http://localhost:5173.*$"
+        }
+      }
+    },
+    {
+      "label": "stop-dev-server",
+      "type": "shell",
+      "command": "taskkill",
+      "args": ["/F", "/IM", "node.exe", "/T"],
+      "group": "build",
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "presentation": {
+        "echo": true,
+        "reveal": "silent",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": true,
+        "clear": false
+      }
+    },
+    {
+      "label": "stop-dev-server-graceful",
+      "type": "shell",
+      "command": "powershell",
+      "args": [
+        "-Command",
+        "Get-Process -Name node -ErrorAction SilentlyContinue | Where-Object {$_.MainWindowTitle -like '*vite*' -or $_.ProcessName -eq 'node'} | Stop-Process -Force"
+      ],
+      "group": "build",
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "presentation": {
+        "echo": true,
+        "reveal": "silent",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": true,
+        "clear": false
+      }
+    },
+    {
+      "label": "stop-dev-server-port",
+      "type": "shell",
+      "command": "powershell",
+      "args": [
+        "-Command",
+        "$processes = netstat -ano | Select-String ':5173'; if ($processes) { $pid = ($processes[0] -split ' +')[4]; if ($pid) { taskkill /F /PID $pid } }"
+      ],
+      "group": "build",
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "presentation": {
+        "echo": true,
+        "reveal": "silent",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": true,
+        "clear": false
+      }
+    },
+    {
+      "label": "stop-dev-server-by-port",
+      "type": "shell",
+      "command": "npx",
+      "args": ["kill-port", "5173"],
+      "group": "build",
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "presentation": {
+        "echo": true,
+        "reveal": "silent",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": true,
+        "clear": false
+      }
+    },
+    {
+      "label": "clean-vite-cache",
+      "type": "shell",
+      "command": "npm",
+      "args": ["run", "clean:cache"],
+      "group": "build",
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": true,
+        "clear": false
+      }
+    },
+    {
+      "label": "dev-clean-start",
+      "type": "shell",
+      "command": "npm",
+      "args": ["run", "dev:clean-graceful"],
+      "group": "build",
+      "isBackground": true,
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": {
+        "owner": "vite",
+        "pattern": {
+          "regexp": "^(.*)$",
+          "file": 1
+        },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": "^.*VITE.*ready.*$",
+          "endsPattern": "^.*Local:.*http://localhost:5173.*$"
+        }
+      }
+    },
+    {
+      "label": "stop-dev-server-clean",
+      "type": "shell",
+      "command": "powershell",
+      "args": [
+        "-Command",
+        "try { npx kill-port 5173 2>$null; Write-Host 'Dev server stopped successfully' -ForegroundColor Green } catch { Write-Host 'No dev server running on port 5173' -ForegroundColor Yellow }; exit 0"
+      ],
+      "group": "build",
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "presentation": {
+        "echo": false,
+        "reveal": "silent",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": false,
+        "clear": false
+      }
+    },
+    {
+      "label": "stop-dev-server-simple",
+      "type": "shell",
+      "command": "npm",
+      "args": ["run", "stop-server-quiet"],
+      "group": "build",
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "presentation": {
+        "echo": true,
+        "reveal": "silent",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": false,
+        "clear": false
+      }
+    },
+    {
+      "label": "clean-cache-force",
+      "type": "shell",
+      "command": "npm",
+      "args": ["run", "clean:cache-force"],
+      "group": "build",
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": false,
+        "clear": false
+      }
+    },
+    {
+      "label": "reset-dev-environment",
+      "type": "shell",
+      "command": "npm",
+      "args": ["run", "reset-dev"],
+      "group": "build",
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": true,
+        "panel": "shared",
+        "showReuseMessage": false,
+        "clear": true
+      }
+    }
+  ]
+}

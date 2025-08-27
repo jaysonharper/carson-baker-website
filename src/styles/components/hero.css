@@ -1,0 +1,66 @@
+@layer components {
+  /* Hero Section */
+  .hero-section {
+    @apply min-h-screen flex items-center justify-center;
+    background: linear-gradient(
+      135deg,
+      var(--github-bg-primary) 0%,
+      var(--github-bg-secondary) 100%
+    );
+    padding-top: 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+        circle at 30% 20%,
+        rgba(124, 58, 237, 0.1) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 70% 80%,
+        rgba(37, 99, 235, 0.1) 0%,
+        transparent 50%
+      );
+  }
+
+  .hero-content {
+    @apply text-center max-w-4xl mx-auto px-6;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-title {
+    @apply text-5xl md:text-6xl lg:text-7xl font-bold mb-6;
+    background: linear-gradient(
+      135deg,
+      var(--github-text-primary) 0%,
+      var(--github-accent-secondary) 50%,
+      var(--github-accent-primary) 100%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 40px rgba(124, 58, 237, 0.3);
+  }
+
+  .hero-subtitle {
+    @apply text-xl md:text-2xl mb-12;
+    color: var(--github-text-secondary);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+  }
+
+  .hero-actions {
+    @apply flex flex-col sm:flex-row gap-4 justify-center items-center;
+  }
+}

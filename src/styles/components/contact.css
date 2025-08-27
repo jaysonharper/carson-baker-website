@@ -1,0 +1,26 @@
+@layer components {
+  /* Contact Info */
+  .contact-info {
+    @apply grid md:grid-cols-2 gap-8 text-center;
+  }
+
+  .contact-item h3 {
+    @apply text-xl font-bold mb-4;
+    color: var(--github-bg-primary);
+  }
+
+  .contact-item p {
+    @apply text-gray-700 leading-relaxed;
+  }
+
+  .contact-item a {
+    @apply text-blue-600 underline;
+  }
+
+  .contact-item a:hover,
+  .contact-item a:focus {
+    @apply text-blue-800;
+    outline: none;
+    text-decoration: underline;
+  }
+}

@@ -1,0 +1,25 @@
+/* Base styles imports - must come before all other CSS rules */
+@import "./base/reset.css";
+@import "./base/variables.css";
+@import "./base/typography.css";
+
+/* Layout imports */
+@import "./layout/sections.css";
+@import "./layout/animations.css";
+
+/* Component imports */
+@import "./components/hero.css";
+@import "./components/services.css";
+@import "./components/attorneys.css";
+@import "./components/testimonials.css";
+@import "./components/contact.css";
+@import "./components/buttons.css";
+
+/* Utility imports */
+@import "./utilities/responsive.css";
+@import "./utilities/scroll.css";
+
+/* Tailwind directives - must come after imports */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

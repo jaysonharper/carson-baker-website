@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=no"
+    />
+    <title>Law Offices of Harper & Cats</title>
+    <meta
+      name="description"
+      content="Professional legal services from experienced attorneys at Law Offices of Harper & Cats"
+    />
+    <!-- Disable browser extensions affecting layout -->
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-config" content="none" />
+    <meta name="theme-color" content="#f8fafc" />
+    <!-- Styles are imported via JavaScript entry (main.js) for bundling -->
+    <!-- Inline critical CSS for consistent initial rendering -->
+    <style>
+      /* Force consistent font rendering across browsers */
+      html,
+      body {
+        -webkit-font-smoothing: antialiased !important;
+        -moz-osx-font-smoothing: grayscale !important;
+        text-rendering: optimizeLegibility !important;
+        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+          "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif !important;
+      }
+      /* Force grid layout consistency */
+      .service-highlights {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+      }
+      @media (min-width: 640px) {
+        .service-highlights {
+          grid-template-columns: repeat(2, 1fr) !important;
+        }
+      }
+      @media (min-width: 900px) {
+        .service-highlights {
+          grid-template-columns: repeat(3, 1fr) !important;
+        }
+      }
+      @media (min-width: 1200px) {
+        .service-highlights {
+          grid-template-columns: repeat(4, 1fr) !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <flow-navbar></flow-navbar>
+
+    <!-- Main Content -->
+    <div id="app">
+      <!-- Hero Section -->
+      <section class="hero-section">
+        <div class="hero-content">
+          <h1 class="hero-title">Professional Legal Services</h1>
+          <p class="hero-subtitle">
+            Experienced attorneys providing comprehensive legal solutions for
+            individuals and businesses
+          </p>
+          <div class="hero-actions">
+            <flow-call-button
+              phone-number="+15555555555"
+              size="xl"
+              variant="hero"
+            ></flow-call-button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Services Section -->
+      <section id="services" class="content-section">
+        <div class="section-container">
+          <h2 class="section-title">Professional Services</h2>
+          <div class="section-card">
+            <p class="section-description">
+              Our experienced legal team provides comprehensive legal services
+              tailored to meet your specific needs. From corporate law to
+              personal injury cases, we deliver professional representation with
+              a commitment to excellence.
+            </p>
+            <div class="service-highlights">
+              <div class="highlight-item" id="service-corporate-law">
+                <div class="highlight-content">
+                  <div class="title-row">
+                    <h3>Corporate Law</h3>
+                  </div>
+                  <p class="highlight-summary">
+                    Business formation, contracts, and compliance
+                  </p>
+                  <div class="highlight-details">
+                    <p>
+                      Our corporate law practice encompasses business entity
+                      formation, contract drafting and review, regulatory
+                      compliance, mergers and acquisitions, and ongoing
+                      corporate governance. We help businesses navigate complex
+                      legal landscapes while protecting their interests and
+                      ensuring regulatory compliance.
+                    </p>
+                  </div>
+                  <ul class="service-features">
+                    <li>Business Formation & Structure</li>
+                    <li>Contract Negotiation & Review</li>
+                    <li>Regulatory Compliance</li>
+                    <li>Mergers & Acquisitions</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="highlight-item" id="service-personal-injury">
+                <div class="highlight-content">
+                  <div class="title-row">
+                    <h3>Personal Injury</h3>
+                  </div>
+                  <p class="highlight-summary">
+                    Accident claims and compensation cases
+                  </p>
+                  <div class="highlight-details">
+                    <p>
+                      We advocate for individuals who have been injured due to
+                      negligence or wrongful acts. Our personal injury practice
+                      covers auto accidents, slip and fall cases, medical
+                      malpractice, and wrongful death claims. We work on a
+                      contingency basis to ensure access to justice.
+                    </p>
+                  </div>
+                  <ul class="service-features">
+                    <li>Auto & Motorcycle Accidents</li>
+                    <li>Slip & Fall Cases</li>
+                    <li>Medical Malpractice</li>
+                    <li>Wrongful Death Claims</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="highlight-item" id="service-family-law">
+                <div class="highlight-content">
+                  <div class="title-row">
+                    <h3>Family Law</h3>
+                  </div>
+                  <p class="highlight-summary">
+                    Divorce, custody, and family legal matters
+                  </p>
+                  <div class="highlight-details">
+                    <p>
+                      Our family law attorneys handle sensitive family matters
+                      with compassion and expertise. We provide guidance through
+                      divorce proceedings, child custody arrangements, adoption
+                      processes, and domestic relations issues while
+                      prioritizing the best interests of all family members.
+                    </p>
+                  </div>
+                  <ul class="service-features">
+                    <li>Divorce & Separation</li>
+                    <li>Child Custody & Support</li>
+                    <li>Adoption Services</li>
+                    <li>Domestic Relations</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="highlight-item" id="service-estate-plans">
+                <div class="highlight-content">
+                  <div class="title-row">
+                    <h3>Estate Plans</h3>
+                  </div>
+                  <p class="highlight-summary">
+                    Wills, trusts, and comprehensive tax strategies
+                  </p>
+                  <div class="highlight-details">
+                    <p>
+                      Protect your legacy and minimize tax burdens with our
+                      comprehensive estate planning services. We create
+                      customized strategies including wills, trusts, tax
+                      planning, and succession planning to ensure your assets
+                      are distributed according to your wishes.
+                    </p>
+                  </div>
+                  <ul class="service-features">
+                    <li>Wills & Testament Drafting</li>
+                    <li>Trust Creation & Management</li>
+                    <li>Tax Optimization Strategies</li>
+                    <li>Succession Planning</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="highlight-item" id="service-elder-law">
+                <div class="highlight-content">
+                  <div class="title-row">
+                    <h3>Elder Law</h3>
+                  </div>
+                  <p class="highlight-summary">
+                    Senior care planning and elder rights protection
+                  </p>
+                  <div class="highlight-details">
+                    <p>
+                      Our elder law practice focuses on the unique legal needs
+                      of seniors and their families. We assist with long-term
+                      care planning, Medicare and Medicaid guidance, age
+                      discrimination issues, and protecting seniors from
+                      financial exploitation.
+                    </p>
+                  </div>
+                  <ul class="service-features">
+                    <li>Long-term Care Planning</li>
+                    <li>Medicare & Medicaid Guidance</li>
+                    <li>Elder Abuse Protection</li>
+                    <li>Age Discrimination Cases</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="highlight-item" id="service-business-law">
+                <div class="highlight-content">
+                  <div class="title-row">
+                    <h3>Business Law</h3>
+                  </div>
+                  <p class="highlight-summary">
+                    Commercial transactions and business operations
+                  </p>
+                  <div class="highlight-details">
+                    <p>
+                      Support your business operations with our comprehensive
+                      business law services. We handle commercial transactions,
+                      employment law, intellectual property protection, and
+                      business disputes to help your company thrive in
+                      competitive markets.
+                    </p>
+                  </div>
+                  <ul class="service-features">
+                    <li>Commercial Transactions</li>
+                    <li>Employment Law</li>
+                    <li>Intellectual Property</li>
+                    <li>Business Disputes</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="highlight-item" id="service-real-estate">
+                <div class="highlight-content">
+                  <div class="title-row">
+                    <h3>Real Estate</h3>
+                  </div>
+                  <p class="highlight-summary">
+                    Property transactions and real estate law
+                  </p>
+                  <div class="highlight-details">
+                    <p>
+                      Navigate complex real estate transactions with confidence.
+                      Our real estate practice covers residential and commercial
+                      property sales, lease agreements, title issues, zoning
+                      matters, and real estate development projects.
+                    </p>
+                  </div>
+                  <ul class="service-features">
+                    <li>Residential & Commercial Sales</li>
+                    <li>Lease Agreements</li>
+                    <li>Title & Zoning Issues</li>
+                    <li>Property Development</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="highlight-item" id="service-conservatorships">
+                <div class="highlight-content">
+                  <div class="title-row">
+                    <h3>Conservatorships</h3>
+                  </div>
+                  <p class="highlight-summary">
+                    Legal guardianship for incapacitated adults
+                  </p>
+                  <div class="highlight-details">
+                    <p>
+                      When adults become unable to manage their own affairs,
+                      conservatorships provide essential protection. We guide
+                      families through the legal process of establishing
+                      conservatorships and ensure the ongoing protection of
+                      vulnerable adults' rights and interests.
+                    </p>
+                  </div>
+                  <ul class="service-features">
+                    <li>Conservatorship Establishment</li>
+                    <li>Court Representation</li>
+                    <li>Asset Protection</li>
+                    <li>Ongoing Compliance</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="highlight-item" id="service-guardianships">
+                <div class="highlight-content">
+                  <div class="title-row">
+                    <h3>Guardianships</h3>
+                  </div>
+                  <p class="highlight-summary">
+                    Legal protection for minors and dependents
+                  </p>
+                  <div class="highlight-details">
+                    <p>
+                      Protect minors and dependent adults through proper
+                      guardianship arrangements. We assist with guardianship
+                      appointments, court proceedings, and ongoing
+                      responsibilities to ensure the safety and well-being of
+                      those who cannot care for themselves.
+                    </p>
+                  </div>
+                  <ul class="service-features">
+                    <li>Minor Guardianship</li>
+                    <li>Dependent Adult Protection</li>
+                    <li>Court Proceedings</li>
+                    <li>Guardian Responsibilities</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="highlight-item" id="service-litigation">
+                <div class="highlight-content">
+                  <div class="title-row">
+                    <h3>Litigation</h3>
+                  </div>
+                  <p class="highlight-summary">
+                    Court representation and dispute resolution
+                  </p>
+                  <div class="highlight-details">
+                    <p>
+                      When disputes cannot be resolved through negotiation, our
+                      experienced litigators provide aggressive representation
+                      in court. We handle civil litigation, commercial disputes,
+                      contract breaches, and appeal processes with strategic
+                      precision.
+                    </p>
+                  </div>
+                  <ul class="service-features">
+                    <li>Civil Litigation</li>
+                    <li>Commercial Disputes</li>
+                    <li>Contract Breaches</li>
+                    <li>Appeals Process</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="highlight-item" id="service-collections">
+                <div class="highlight-content">
+                  <div class="title-row">
+                    <h3>Collections</h3>
+                  </div>
+                  <p class="highlight-summary">
+                    Debt recovery and collection services
+                  </p>
+                  <div class="highlight-details">
+                    <p>
+                      Recover outstanding debts efficiently and legally through
+                      our collections practice. We represent creditors in debt
+                      recovery efforts, judgment enforcement, asset recovery,
+                      and bankruptcy proceedings while ensuring compliance with
+                      consumer protection laws.
+                    </p>
+                  </div>
+                  <ul class="service-features">
+                    <li>Debt Recovery</li>
+                    <li>Judgment Enforcement</li>
+                    <li>Asset Recovery</li>
+                    <li>Bankruptcy Proceedings</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Attorneys Section -->
+      <section id="attorneys" class="content-section bg-alternate">
+        <div class="section-container">
+          <h2 class="section-title">Meet Our Attorneys</h2>
+          <div class="section-card">
+            <p class="section-description">
+              Our team of dedicated attorneys brings decades of combined
+              experience across multiple practice areas. We pride ourselves on
+              providing personalized attention and strategic legal counsel to
+              every client.
+            </p>
+            <div class="attorney-preview">
+              <flow-attorney-card
+                name="Roxie Harper"
+                email="roxie@harpercats.law"
+                image="./images/roxie_cat.jpeg"
+                image-alt="Roxie Harper Profile"
+                image-class="roxie"
+              ></flow-attorney-card>
+
+              <flow-attorney-card
+                name="Shadow Harper"
+                email="shadow@harpercats.law"
+                image="./images/shadow_cat.jpeg"
+                image-alt="Shadow Harper Profile"
+                image-class="shadow"
+              ></flow-attorney-card>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Testimonials Section -->
+      <section id="testimonials" class="content-section">
+        <div class="section-container">
+          <h2 class="section-title">Testimonials</h2>
+          <div class="section-card">
+            <p class="section-description">
+              Our clients' success stories speak to our commitment to excellence
+              and dedication to achieving the best possible outcomes. Read what
+              our satisfied clients have to say about their experience with our
+              firm.
+            </p>
+            <div class="testimonial-preview">
+              <blockquote class="testimonial-item">
+                <p>
+                  "Outstanding legal representation with exceptional attention
+                  to detail. Highly recommended!"
+                </p>
+                <cite>— Client Testimonial</cite>
+              </blockquote>
+              <blockquote class="testimonial-item">
+                <p>
+                  "Professional, knowledgeable, and results-driven. Exceeded our
+                  expectations in every way."
+                </p>
+                <cite>— Client Testimonial</cite>
+              </blockquote>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Find Us Section -->
+      <section id="find-us" class="content-section bg-alternate">
+        <div class="section-container">
+          <h2 class="section-title">Find Us</h2>
+          <div class="section-card">
+            <p class="section-description">
+              Located in the heart of the city, our offices are easily
+              accessible and designed to provide a comfortable environment for
+              client consultations. Contact us today to schedule your
+              appointment.
+            </p>
+            <div class="contact-info">
+              <div class="contact-item">
+                <h3>Office Location</h3>
+                <p>
+                  <a
+                    href="https://www.google.com/maps/place/Portland,+OR/@45.5428365,-122.819192,11z/data=!3m1!4b1!4m6!3m5!1s0x54950b0b7da97427:0x1c36b9e6f6d18591!8m2!3d45.515232!4d-122.6783853!16s%2Fm%2F02frhbc?authuser=0&entry=ttu&g_ep=EgoyMDI1MDgxOS4wIKXMDSoASAFQAw%3D%3D"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    123 Legal Street<br />Downtown District<br />City, State
+                    12345
+                  </a>
+                </p>
+              </div>
+              <div class="contact-item">
+                <h3>Contact Information</h3>
+                <p>
+                  Phone: (555) 555-5555<br />Email: info@harpercats.law<br />Hours:
+                  Mon-Fri 9AM-6PM
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Footer Section -->
+    <footer
+      class="relative bg-gradient-to-r from-gray-900 to-gray-800 text-white border-t border-gray-700"
+    >
+      <div class="max-w-6xl mx-auto px-4">
+        <!-- Desktop/Tablet Footer (md and up) -->
+        <div class="hidden md:block py-12">
+          <!-- Business Name -->
+          <div class="text-center mb-8">
+            <h3 class="text-2xl font-bold text-white mb-2">
+              Law Offices of Harper & Cats
+            </h3>
+            <p class="text-gray-300 text-sm">Professional Legal Services</p>
+          </div>
+
+          <!-- Navigation Links -->
+          <div class="flex justify-center mb-8">
+            <nav class="flex flex-wrap justify-center gap-6 md:gap-8">
+              <a
+                href="#services"
+                class="text-gray-300 hover:text-white transition-colors duration-200 text-base"
+              >
+                Services
+              </a>
+              <a
+                href="#attorneys"
+                class="text-gray-300 hover:text-white transition-colors duration-200 text-base"
+              >
+                Attorneys
+              </a>
+              <a
+                href="#testimonials"
+                class="text-gray-300 hover:text-white transition-colors duration-200 text-base"
+              >
+                Testimonials
+              </a>
+              <a
+                href="#find-us"
+                class="text-gray-300 hover:text-white transition-colors duration-200 text-base"
+              >
+                Find Us
+              </a>
+            </nav>
+          </div>
+
+          <!-- Copyright -->
+          <div class="text-center pt-6 border-t border-gray-700">
+            <p class="text-gray-400 text-sm">
+              &copy; 2025 Law Offices of Harper & Cats. All rights reserved.
+            </p>
+          </div>
+        </div>
+
+        <!-- Mobile Footer (compact) -->
+        <div class="md:hidden py-6 text-center">
+          <h4 class="text-lg font-semibold text-white mb-2">
+            Law Offices of Harper & Cats
+          </h4>
+          <p class="text-gray-400 text-xs">&copy; 2025 All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <flow-scroll-to-top></flow-scroll-to-top>
+
+    <!-- Floating Call Button -->
+    <flow-floating-call-button
+      phone-number="+15555555555"
+    ></flow-floating-call-button>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

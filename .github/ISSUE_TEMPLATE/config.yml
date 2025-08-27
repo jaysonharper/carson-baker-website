@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 💬 General Discussion
+    url: https://github.com/jaysonharper/static-web-starter-template/discussions
+    about: Ask questions, share ideas, or discuss the law office website project
+  - name: 🔒 Security Issue
+    url: https://github.com/jaysonharper/static-web-starter-template/security/advisories/new
+    about: Report security vulnerabilities privately
+  - name: 📧 Direct Contact
+    url: mailto:jayson@example.com
+    about: Contact the maintainer directly for urgent law office website matters

@@ -1,0 +1,26 @@
+@layer base {
+  html,
+  body {
+    @apply h-full m-0 font-sans;
+    background: linear-gradient(
+      135deg,
+      var(--github-light-bg) 0%,
+      var(--github-light-secondary) 100%
+    );
+    color: #1f2937;
+    scroll-behavior: smooth;
+    /* Cross-browser font rendering */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    /* Prevent zoom issues */
+    text-size-adjust: 100%;
+  }
+
+  * {
+    box-sizing: border-box;
+    /* Consistent rendering across browsers */
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+  }
+}
