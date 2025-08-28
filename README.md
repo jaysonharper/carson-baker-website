@@ -212,8 +212,6 @@ If you need a template for distribution, you can recreate one manually (e.g. `cp
 ├── index.html # Main HTML file
 └── vite.config.js # Vite configuration
 
-````
-
 ## 🎨 Design System
 
 Components follow [Flowbite](https://flowbite.com/) design patterns and use Tailwind CSS utility classes. This ensures:
