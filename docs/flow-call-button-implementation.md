@@ -51,7 +51,7 @@ customElements.define("flow-call-button", FlowCallButton);
 
 ```html
 <flow-call-button
-  phone-number="+15555555555"
+  phone-number="+15032889291"
   size="md"
   variant="primary"
 ></flow-call-button>
@@ -61,7 +61,7 @@ customElements.define("flow-call-button", FlowCallButton);
 
 ```html
 <flow-call-button
-  phone-number="+15555555555"
+  phone-number="+15032889291"
   size="xl"
   variant="hero"
 ></flow-call-button>
@@ -123,7 +123,7 @@ background: linear-gradient(135deg, #0d1117 0%, #161b22 100%);
 ```javascript
 {
   detail: {
-    phoneNumber: "+15555555555",
+    phoneNumber: "+15032889291",
     variant: "hero",
     size: "xl",
     originalEvent: clickEvent

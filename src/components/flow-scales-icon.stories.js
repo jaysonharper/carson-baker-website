@@ -107,7 +107,7 @@ export const InNavbarContext = () => html`
       <div
         style="color: #f0f6fc; font-size: 1.2rem; font-weight: bold; background: linear-gradient(135deg, #f0f6fc 0%, #7c3aed 50%, #2563eb 100%); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;"
       >
-        Harper & Cats
+        Carson & Baker
       </div>
       <nav style="display: flex; gap: 1.5rem; align-items: center;">
         <a

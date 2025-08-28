@@ -63,13 +63,13 @@ const Template = (args) => {
   return card;
 };
 
-export const RoxieHarper = Template.bind({});
-RoxieHarper.args = {
-  name: "Roxie Harper",
-  email: "roxie@harpercats.law",
-  image: "./images/roxie_cat.jpeg",
-  imageAlt: "Roxie Harper Profile",
-  imageClass: "roxie",
+export const BrettCarson = Template.bind({});
+BrettCarson.args = {
+  name: "Brett S. Carson",
+  email: "brett@cblawpdx.com",
+  image: "./images/brettcarson.jpg",
+  imageAlt: "Brett S. Carson Profile",
+  imageClass: "brett",
   specialties: [
     "Corporate Law",
     "Personal Injury",
@@ -97,16 +97,16 @@ RoxieHarper.args = {
     "U.S. Court of Appeals, Ninth Circuit (2020)",
   ],
   biography:
-    "Roxie Harper is a dedicated attorney with over 6 years of experience in corporate law and personal injury cases. She has successfully represented clients in complex litigation matters, securing millions in settlements and verdicts. Roxie is known for her meticulous attention to detail and aggressive advocacy for her clients. When not practicing law, she enjoys hiking with her rescue cats and volunteering at local animal shelters.",
+    "Brett S. Carson is a dedicated attorney with over 6 years of experience in corporate law and personal injury cases. He has successfully represented clients in complex litigation matters, securing millions in settlements and verdicts. Brett is known for his meticulous attention to detail and aggressive advocacy for his clients. When not practicing law, he enjoys hiking with his rescue cats and volunteering at local animal shelters.",
 };
 
-export const ShadowHarper = Template.bind({});
-ShadowHarper.args = {
-  name: "Shadow Harper",
-  email: "shadow@harpercats.law",
-  image: "./images/shadow_cat.jpeg",
-  imageAlt: "Shadow Harper Profile",
-  imageClass: "shadow",
+export const RandallBaker = Template.bind({});
+RandallBaker.args = {
+  name: "Randall H. Baker",
+  email: "randall@cblawpdx.com",
+  image: "./images/randallbaker.jpg",
+  imageAlt: "Randall H. Baker Profile",
+  imageClass: "randall",
   specialties: [
     "Elder Law",
     "Business Law",
@@ -135,7 +135,7 @@ ShadowHarper.args = {
     "U.S. Tax Court (2017)",
   ],
   biography:
-    "Shadow Harper specializes in elder law and estate planning with over 8 years of experience protecting seniors and their families. She has helped hundreds of families navigate complex Medicaid planning, guardianship proceedings, and estate administration. Shadow is particularly passionate about advocating for vulnerable adults and has been recognized by the National Academy of Elder Law Attorneys for her outstanding service. She frequently speaks at continuing education seminars and community workshops.",
+    "Randall H. Baker specializes in elder law and estate planning with over 8 years of experience protecting seniors and their families. He has helped hundreds of families navigate complex Medicaid planning, guardianship proceedings, and estate administration. Randall is particularly passionate about advocating for vulnerable adults and has been recognized by the National Academy of Elder Law Attorneys for his outstanding service. He frequently speaks at continuing education seminars and community workshops.",
 };
 
 export const MinimalCard = Template.bind({});
@@ -162,30 +162,30 @@ export const InteractiveDemo = () => {
     padding: 2rem;
   `;
 
-  const roxieCard = Template(RoxieHarper.args);
-  const shadowCard = Template(ShadowHarper.args);
+  const brettCard = Template(BrettCarson.args);
+  const randallCard = Template(RandallBaker.args);
 
   // Add event listeners for demonstration (development only)
   if (typeof import.meta !== "undefined" && import.meta.env?.DEV) {
-    roxieCard.addEventListener("card-flip", (e) => {
-      console.log("Roxie card flipped:", e.detail);
+    brettCard.addEventListener("card-flip", (e) => {
+      console.log("Brett card flipped:", e.detail);
     });
 
-    shadowCard.addEventListener("card-flip", (e) => {
-      console.log("Shadow card flipped:", e.detail);
+    randallCard.addEventListener("card-flip", (e) => {
+      console.log("Randall card flipped:", e.detail);
     });
 
-    roxieCard.addEventListener("specialty-click", (e) => {
-      console.log("Specialty clicked on Roxie card:", e.detail);
+    brettCard.addEventListener("specialty-click", (e) => {
+      console.log("Specialty clicked on Brett card:", e.detail);
     });
 
-    shadowCard.addEventListener("specialty-click", (e) => {
-      console.log("Specialty clicked on Shadow card:", e.detail);
+    randallCard.addEventListener("specialty-click", (e) => {
+      console.log("Specialty clicked on Randall card:", e.detail);
     });
   }
 
-  container.appendChild(roxieCard);
-  container.appendChild(shadowCard);
+  container.appendChild(brettCard);
+  container.appendChild(randallCard);
 
   return container;
 };

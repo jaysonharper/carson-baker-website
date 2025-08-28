@@ -387,11 +387,11 @@ describe("FlowAttorneyCard", () => {
     });
 
     it("should handle image class attribute properly", async () => {
-      element.imageClass = "roxie";
+      element.imageClass = "brett";
       await element.updateComplete;
 
       const image = element.shadowRoot.querySelector(".attorney-image");
-      expect(image.className).to.include("roxie");
+      expect(image.className).to.include("brett");
     });
 
     it("should handle undefined or null values gracefully", async () => {

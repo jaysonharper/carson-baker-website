@@ -82,7 +82,11 @@ export class FlowAttorneyCard extends LitElement {
     }
 
     /* Specific positioning adjustments for individual attorneys */
-    .attorney-image.roxie {
+    .attorney-image.brett {
+      object-position: center 0%; /* Moves the image down - face will be positioned lower in the circle */
+    }
+
+    .attorney-image.randall {
       object-position: center 0%; /* Moves the image down - face will be positioned lower in the circle */
     }
 

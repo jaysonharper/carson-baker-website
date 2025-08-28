@@ -46,7 +46,7 @@
 
 ### Installation & Development
 
-```bash
+````bash
 # Clone the repository
 git clone https://github.com/jaysonharper/static-web-starter-template.git
 cd static-web-starter-template
@@ -55,8 +55,6 @@ cd static-web-starter-template
 npm install
 
 # Start development server
-npm run dev
-```
 
 Visit `http://localhost:5173` to see your application.
 
@@ -65,11 +63,40 @@ Visit `http://localhost:5173` to see your application.
 ```bash
 # Start Storybook for component development
 npm run storybook
-```
+````
 
 Visit `http://localhost:6006` to access the component library.
 
-## 📜 Available Scripts
+## � Environment Variables
+
+This project now relies on a local-only env file and no longer includes a committed `.env.example`.
+
+Create a `.env.local` in the project root (already added to `.gitignore`). Example contents:
+
+```bash
+VITE_APP_NAME="Law Offices of Carson & Baker"
+VITE_APP_VERSION="1.0.0"
+VITE_APP_ENVIRONMENT="development"
+VITE_ENABLE_ANALYTICS=false
+VITE_ENABLE_DEBUG=true
+VITE_OFFICE_PHONE="+1-555-LAW-FIRM"
+VITE_OFFICE_EMAIL="contact@harperandcats.law"
+```
+
+Guidelines:
+
+- Only variables prefixed with `VITE_` are exposed to client code via `import.meta.env`.
+- Never place secrets (API keys, tokens) in `VITE_` variables—they are bundled into frontend JavaScript.
+- Restart the dev server after adding or renaming variables.
+- Use additional env files if needed (`.env.production`, `.env.development`, etc.). Add a `.local` suffix for machine‑specific overrides (already git‑ignored).
+
+const debugEnabled = import.meta.env.VITE_ENABLE_DEBUG === 'true';
+
+````
+
+If you need a template for distribution, you can recreate one manually (e.g. `cp .env.local .env.example` and strip sensitive values) before sharing the project.
+
+## �📜 Available Scripts
 
 ### Development
 
@@ -78,29 +105,17 @@ Visit `http://localhost:6006` to access the component library.
 
 ### Building
 
-- `npm run build` - Build for production
-- `npm run build:clean` - Clean cache and build
 - `npm run preview` - Preview production build
 
 ### Testing
-
-- `npm run test` - Run unit tests with Vitest
-
 ### Storybook
 
 - `npm run storybook` - Start Storybook dev server
-- `npm run build-storybook` - Build Storybook for deployment
 
 ### Maintenance
 
-- `npm run format` - Format code with Prettier
-- `npm run clean:cache` - Clear Vite cache
 - `npm run clean:all` - Clear all build artifacts
 - `npm run fresh-install` - Clean reinstall dependencies
-
-## 🧩 Component Library
-
-The project includes a growing library of reusable Lit web components:
 
 ### Available Components
 
@@ -109,7 +124,7 @@ The project includes a growing library of reusable Lit web components:
 ```html
 <flow-button variant="primary" size="md">Click me</flow-button>
 <flow-button variant="success" loading>Processing...</flow-button>
-```
+````
 
 **Properties:**
 
@@ -118,12 +133,9 @@ The project includes a growing library of reusable Lit web components:
 - `disabled`: boolean
 - `loading`: boolean
 
-#### Flow Alert (`<flow-alert>`)
-
-```html
-<flow-alert type="success" dismissible>
   <strong>Success!</strong> Operation completed.
-</flow-alert>
+  </flow-alert>
+
 ```
 
 **Properties:**
@@ -133,10 +145,7 @@ The project includes a growing library of reusable Lit web components:
 - `icon`: boolean
 
 #### Flow Floating Call Button (`<flow-floating-call-button>`)
-
-```html
-<flow-floating-call-button
-  phone-number="+15555555555"
+  phone-number="+15032889291"
 ></flow-floating-call-button>
 ```
 
@@ -148,14 +157,10 @@ The project includes a growing library of reusable Lit web components:
 
 **Features:**
 
-- Appears when hero section scrolls out of view
-- Smart positioning above footer when footer is visible
 - Intersection Observer-based visibility control
 
 #### Flow Scroll to Top (`<flow-scroll-to-top>`)
 
-```html
-<flow-scroll-to-top></flow-scroll-to-top>
 ```
 
 **Properties:**
@@ -165,14 +170,9 @@ The project includes a growing library of reusable Lit web components:
 
 **Features:**
 
-- Smooth scroll to top functionality
-- Appears when hero section scrolls out of view
 - Smart positioning above footer when footer is visible
 
 #### Responsive Footer
-
-The footer component provides a professional, mobile-responsive footer:
-
 **Desktop/Tablet Features:**
 
 - Business name and tagline
@@ -180,47 +180,39 @@ The footer component provides a professional, mobile-responsive footer:
 - Complete copyright notice
 - Dark gradient theme matching navbar
 
-**Mobile Features:**
-
-- Compact design with essential information only
-- No redundant navigation (hamburger menu provides navigation)
 - Optimized typography and spacing
 
 **Smart Integration:**
-
-- Floating elements automatically pin above footer when footer comes into view
-- Prevents UI overlap while maintaining functionality
 - Smooth transitions between positioning states
 
 ### Creating New Components
-
-1. Create component in `src/components/`
-2. Add to `src/components/index.js`
 3. Create stories in `src/components/[component].stories.js`
 4. Document in Storybook
 
 ## 📁 Project Structure
 
 ```
-├── .storybook/          # Storybook configuration
-├── docs/                # Component documentation
-├── scripts/             # Build and dev scripts
+
+├── .storybook/ # Storybook configuration
+├── docs/ # Component documentation
+├── scripts/ # Build and dev scripts
 ├── src/
-│   ├── components/      # Lit web components
-│   │   ├── flow-button.js
-│   │   ├── flow-alert.js
-│   │   └── *.stories.js # Storybook stories
-│   ├── stories/         # Default Storybook examples
-│   ├── styles/          # Modular CSS architecture
-│   │   ├── main.css     # Main stylesheet entry point
-│   │   ├── base/        # Reset, variables, typography
-│   │   ├── components/  # Component-specific styles
-│   │   ├── layout/      # Layout and animations
-│   │   └── utilities/   # Responsive and scroll utilities
-│   └── app.main.js          # Application entry point
-├── index.html           # Main HTML file
-└── vite.config.js       # Vite configuration
-```
+│ ├── components/ # Lit web components
+│ │ ├── flow-button.js
+│ │ ├── flow-alert.js
+│ │ └── \*.stories.js # Storybook stories
+│ ├── stories/ # Default Storybook examples
+│ ├── styles/ # Modular CSS architecture
+│ │ ├── main.css # Main stylesheet entry point
+│ │ ├── base/ # Reset, variables, typography
+│ │ ├── components/ # Component-specific styles
+│ │ ├── layout/ # Layout and animations
+│ │ └── utilities/ # Responsive and scroll utilities
+│ └── app.main.js # Application entry point
+├── index.html # Main HTML file
+└── vite.config.js # Vite configuration
+
+````
 
 ## 🎨 Design System
 
@@ -231,14 +223,9 @@ Components follow [Flowbite](https://flowbite.com/) design patterns and use Tail
 - **Responsive** design
 - **Dark mode** support
 - **Professional** appearance
-
-## 🧪 Testing
-
-Run tests with Vitest:
-
 ```bash
 npm run test
-```
+````
 
 Test files should be placed alongside components with `.test.js` suffix.
 
@@ -250,8 +237,6 @@ Test files should be placed alongside components with `.test.js` suffix.
 
 ## 🚀 Deployment
 
-### GitHub Pages (Automatic Base Path)
-
 This template is configured so that when you click "Use this template" and create a new repository, GitHub Pages deployment works without manual edits—CSS and assets will load correctly under your new repo name.
 
 How it works:
@@ -260,11 +245,7 @@ How it works:
 - The workflow injects `VITE_BASE_PATH=/your-repo-name/` automatically unless the repo is a root user/org site (`username.github.io`).
 - For user/org Pages sites (`*.github.io`), the base is `/`.
 
-User steps after creating a repo from the template:
-
-1. Push to `main` (or just keep the initial commit).
-2. Enable GitHub Pages (Settings → Pages → Source: GitHub Actions). The first workflow run will publish automatically.
-3. Visit: `https://<your-username>.github.io/<your-repo-name>/` (or root if a `*.github.io` repo).
+User steps after creating a repo from the template: 3. Visit: `https://<your-username>.github.io/<your-repo-name>/` (or root if a `*.github.io` repo).
 
 No need to edit `vite.config.js`, scripts, or HTML paths.
 
@@ -327,4 +308,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
 - [Storybook](https://storybook.js.org/) - Component development environment
 - [Flowbite](https://flowbite.com/) - Component design patterns
-- [Vitest](https://vitest.dev/) - Blazing fast testing framework
+
+```bash
+
+```

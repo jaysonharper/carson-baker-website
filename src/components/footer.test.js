@@ -16,7 +16,7 @@ beforeEach(() => {
         <!-- Desktop/Tablet Footer (md and up) -->
         <div class="hidden md:block py-12">
           <div class="text-center mb-8">
-            <h3 class="text-2xl font-bold text-white mb-2">Law Offices of Harper & Cats</h3>
+            <h3 class="text-2xl font-bold text-white mb-2">Law Offices of Carson & Baker</h3>
             <p class="text-gray-300 text-sm">Professional Legal Services</p>
           </div>
           <div class="flex justify-center mb-8">
@@ -28,12 +28,12 @@ beforeEach(() => {
             </nav>
           </div>
           <div class="text-center pt-6 border-t border-gray-700">
-            <p class="text-gray-400 text-sm">&copy; 2025 Law Offices of Harper & Cats. All rights reserved.</p>
+            <p class="text-gray-400 text-sm">&copy; 2025 Law Offices of Carson & Baker. All rights reserved.</p>
           </div>
         </div>
         <!-- Mobile Footer (compact) -->
         <div class="md:hidden py-6 text-center">
-          <h4 class="text-lg font-semibold text-white mb-2">Law Offices of Harper & Cats</h4>
+          <h4 class="text-lg font-semibold text-white mb-2">Law Offices of Carson & Baker</h4>
           <p class="text-gray-400 text-xs">&copy; 2025 All rights reserved.</p>
         </div>
       </div>
@@ -60,7 +60,7 @@ describe("Footer Structure and Content", () => {
     expect(desktopFooter).toBeTruthy();
 
     const businessName = desktopFooter.querySelector("h3");
-    expect(businessName.textContent).toBe("Law Offices of Harper & Cats");
+    expect(businessName.textContent).toBe("Law Offices of Carson & Baker");
     expect(businessName.classList.contains("text-2xl")).toBe(true);
     expect(businessName.classList.contains("font-bold")).toBe(true);
   });
@@ -70,7 +70,7 @@ describe("Footer Structure and Content", () => {
     expect(mobileFooter).toBeTruthy();
 
     const businessName = mobileFooter.querySelector("h4");
-    expect(businessName.textContent).toBe("Law Offices of Harper & Cats");
+    expect(businessName.textContent).toBe("Law Offices of Carson & Baker");
     expect(businessName.classList.contains("text-lg")).toBe(true);
     expect(businessName.classList.contains("font-semibold")).toBe(true);
   });
@@ -114,7 +114,7 @@ describe("Footer Structure and Content", () => {
       ".hidden.md\\:block .text-gray-400"
     );
     expect(desktopCopyright.textContent).toContain(
-      "© 2025 Law Offices of Harper & Cats. All rights reserved."
+      "© 2025 Law Offices of Carson & Baker. All rights reserved."
     );
 
     // Mobile copyright

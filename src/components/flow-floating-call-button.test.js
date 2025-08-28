@@ -35,7 +35,7 @@ beforeEach(() => {
   document.body.innerHTML = `
     <div class="hero-section">Hero Content</div>
     <footer>Footer Content</footer>
-    <flow-floating-call-button phone-number="+15555555555"></flow-floating-call-button>
+    <flow-floating-call-button phone-number="+15032889291"></flow-floating-call-button>
   `;
 });
 
@@ -51,7 +51,7 @@ describe("FlowFloatingCallButton", () => {
 
     expect(component.visible).toBe(false);
     expect(component.pinned).toBe(false);
-    expect(component.phoneNumber).toBe("+15555555555");
+    expect(component.phoneNumber).toBe("+15032889291");
   });
 
   it("should setup intersection observers on connection", async () => {
@@ -105,7 +105,7 @@ describe("FlowFloatingCallButton", () => {
     await component.updateComplete;
 
     const link = component.shadowRoot.querySelector(".call-button");
-    expect(link.href).toBe("tel:+15555555555");
+    expect(link.href).toBe("tel:+15032889291");
     expect(link.textContent.trim()).toContain("Call Now");
   });
 
