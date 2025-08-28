@@ -67,7 +67,7 @@ npm run storybook
 
 Visit `http://localhost:6006` to access the component library.
 
-## � Environment Variables
+## ⚙️ Environment Variables
 
 This project now relies on a local-only env file and no longer includes a committed `.env.example`.
 
