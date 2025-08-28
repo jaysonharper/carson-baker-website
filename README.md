@@ -96,7 +96,7 @@ const debugEnabled = import.meta.env.VITE_ENABLE_DEBUG === 'true';
 
 If you need a template for distribution, you can recreate one manually (e.g. `cp .env.local .env.example` and strip sensitive values) before sharing the project.
 
-## �📜 Available Scripts
+## 📜 Available Scripts
 
 ### Development
 
