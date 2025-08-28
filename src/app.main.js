@@ -31,12 +31,12 @@ if (typeof import.meta !== "undefined" && import.meta.env?.DEV) {
   window.clearAll = () => {
     console.clear();
     console.log("🧹 Console cleared!");
-    console.log("🚀 Law Offices of Harper & Cats - Development Mode");
+    console.log("🚀 Law Offices of Carson & Baker - Development Mode");
   };
   console.log("💡 Development mode: Use clearAll() to clear console");
 }
 
-// Main application entrypoint for Law Offices of Harper & Cats
+// Main application entrypoint for Law Offices of Carson & Baker
 // Only run DOM wiring when `document` exists (avoid errors in Node test env)
 if (typeof document !== "undefined") {
   // Ensure DOM is fully loaded before initializing
@@ -92,7 +92,7 @@ function initializeApp() {
 function setupAttorneyCards() {
   // Attorney data
   const attorneyData = {
-    "Roxie Harper": {
+    "Brett S. Carson": {
       specialties: [
         "Corporate Law",
         "Personal Injury",
@@ -120,9 +120,9 @@ function setupAttorneyCards() {
         "U.S. Court of Appeals, Ninth Circuit (2020)",
       ],
       biography:
-        "Roxie Harper is a dedicated attorney with over 6 years of experience in corporate law and personal injury cases. She has successfully represented clients in complex litigation matters, securing millions in settlements and verdicts. Roxie is known for her meticulous attention to detail and aggressive advocacy for her clients. When not practicing law, she enjoys hiking with her rescue cats and volunteering at local animal shelters.",
+        "Brett S. Carson is a dedicated attorney with over 6 years of experience in corporate law and personal injury cases. He has successfully represented clients in complex litigation matters, securing millions in settlements and verdicts. Brett is known for his meticulous attention to detail and aggressive advocacy for his clients. When not practicing law, he enjoys hiking with his rescue cats and volunteering at local animal shelters.",
     },
-    "Shadow Harper": {
+    "Randall H. Baker": {
       specialties: [
         "Elder Law",
         "Business Law",
@@ -151,7 +151,7 @@ function setupAttorneyCards() {
         "U.S. Tax Court (2017)",
       ],
       biography:
-        "Shadow Harper specializes in elder law and estate planning with over 8 years of experience protecting seniors and their families. She has helped hundreds of families navigate complex Medicaid planning, guardianship proceedings, and estate administration. Shadow is particularly passionate about advocating for vulnerable adults and has been recognized by the National Academy of Elder Law Attorneys for her outstanding service. She frequently speaks at continuing education seminars and community workshops.",
+        "Randall H. Baker specializes in elder law and estate planning with over 8 years of experience protecting seniors and their families. He has helped hundreds of families navigate complex Medicaid planning, guardianship proceedings, and estate administration. Randall is particularly passionate about advocating for vulnerable adults and has been recognized by the National Academy of Elder Law Attorneys for his outstanding service. He frequently speaks at continuing education seminars and community workshops.",
     },
   };
 

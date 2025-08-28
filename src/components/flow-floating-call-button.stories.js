@@ -38,7 +38,7 @@ const Template = (args) => html`
 // Default story
 export const Default = Template.bind({});
 Default.args = {
-  phoneNumber: "+15555555555",
+  phoneNumber: "+15032889291",
   visible: true,
 };
 Default.parameters = {
@@ -68,7 +68,7 @@ CustomPhoneNumber.parameters = {
 // Hidden state
 export const Hidden = Template.bind({});
 Hidden.args = {
-  phoneNumber: "+15555555555",
+  phoneNumber: "+15032889291",
   visible: false,
 };
 Hidden.parameters = {
@@ -190,7 +190,7 @@ export const PositioningComparison = () => html`
     </div>
 
     <flow-floating-call-button
-      phone-number="+15555555555"
+      phone-number="+15032889291"
       visible="true"
       style="position: absolute;"
       @flow-floating-call-click="${(e) => {

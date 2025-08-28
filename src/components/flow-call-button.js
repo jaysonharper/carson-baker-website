@@ -233,7 +233,7 @@ export class FlowCallButton extends LitElement {
 
   constructor() {
     super();
-    this.phoneNumber = "+15555555555";
+    this.phoneNumber = "+15032889291";
     this.size = "md";
     this.variant = "primary";
     this.disabled = false;

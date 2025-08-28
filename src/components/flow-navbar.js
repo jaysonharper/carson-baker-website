@@ -260,7 +260,7 @@ export class FlowNavbar extends LitElement {
           @keydown="${this._handleCompanyNameKeydown}"
         >
           <div class="company-line-1">Law Offices of</div>
-          <div class="company-line-2">Harper & Cats</div>
+          <div class="company-line-2">Carson & Baker</div>
         </div>
 
         <!-- Scales of Justice Icon -->

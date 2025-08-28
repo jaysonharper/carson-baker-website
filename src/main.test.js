@@ -9,12 +9,12 @@ describe("Law Office Main App", () => {
       const logMessages = [];
       console.log = (...args) => logMessages.push(args);
 
-      trackEvent("phone_call_attempted", { phone_number: "+15555555555" });
+      trackEvent("phone_call_attempted", { phone_number: "+15032889291" });
 
       expect(logMessages).toContainEqual([
         "Event tracked:",
         "phone_call_attempted",
-        { phone_number: "+15555555555" },
+        { phone_number: "+15032889291" },
       ]);
 
       // Restore console.log
@@ -28,7 +28,7 @@ describe("Law Office Main App", () => {
       console.log = (...args) => logMessages.push(args);
 
       trackEvent("phone_call_attempted", {
-        phone_number: "+15555555555",
+        phone_number: "+15032889291",
         source: "hero_section",
         button_size: "xl",
         button_variant: "hero",
@@ -38,7 +38,7 @@ describe("Law Office Main App", () => {
         "Event tracked:",
         "phone_call_attempted",
         {
-          phone_number: "+15555555555",
+          phone_number: "+15032889291",
           source: "hero_section",
           button_size: "xl",
           button_variant: "hero",

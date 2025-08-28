@@ -70,7 +70,7 @@ const Template = (args) => html`
 
 export const Default = Template.bind({});
 Default.args = {
-  phoneNumber: "+15555555555",
+  phoneNumber: "+15032889291",
   size: "md",
   variant: "primary",
   disabled: false,
@@ -79,7 +79,7 @@ Default.args = {
 
 export const NavbarStyle = Template.bind({});
 NavbarStyle.args = {
-  phoneNumber: "+15555555555",
+  phoneNumber: "+15032889291",
   size: "md",
   variant: "navbar",
   disabled: false,
@@ -96,7 +96,7 @@ NavbarStyle.parameters = {
 
 export const HeroStyle = Template.bind({});
 HeroStyle.args = {
-  phoneNumber: "+15555555555",
+  phoneNumber: "+15032889291",
   size: "lg",
   variant: "hero",
   disabled: false,
@@ -112,7 +112,7 @@ HeroStyle.parameters = {
 
 export const SecondaryStyle = Template.bind({});
 SecondaryStyle.args = {
-  phoneNumber: "+15555555555",
+  phoneNumber: "+15032889291",
   size: "md",
   variant: "secondary",
   disabled: false,
@@ -153,28 +153,28 @@ export const AllSizes = () => html`
       <div class="size-label">XS:</div>
       <flow-call-button
         size="sm"
-        phone-number="+15555555555"
+        phone-number="+15032889291"
       ></flow-call-button>
     </div>
     <div class="size-row">
       <div class="size-label">MD:</div>
       <flow-call-button
         size="md"
-        phone-number="+15555555555"
+        phone-number="+15032889291"
       ></flow-call-button>
     </div>
     <div class="size-row">
       <div class="size-label">LG:</div>
       <flow-call-button
         size="lg"
-        phone-number="+15555555555"
+        phone-number="+15032889291"
       ></flow-call-button>
     </div>
     <div class="size-row">
       <div class="size-label">XL:</div>
       <flow-call-button
         size="xl"
-        phone-number="+15555555555"
+        phone-number="+15032889291"
       ></flow-call-button>
     </div>
   </div>
@@ -200,7 +200,7 @@ CustomText.parameters = {
 
 export const FullWidth = Template.bind({});
 FullWidth.args = {
-  phoneNumber: "+15555555555",
+  phoneNumber: "+15032889291",
   size: "lg",
   variant: "hero",
   disabled: false,
@@ -216,7 +216,7 @@ FullWidth.parameters = {
 
 export const Disabled = Template.bind({});
 Disabled.args = {
-  phoneNumber: "+15555555555",
+  phoneNumber: "+15032889291",
   size: "md",
   variant: "primary",
   disabled: true,
