@@ -55,7 +55,7 @@ export class FlowAttorneyCard extends LitElement {
 
     .card-face:hover {
       box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-      border-color: var(--github-accent-primary, #2563eb);
+      border-color: var(--subsection-card-hover, #2563eb);
     }
 
     .card-front {
@@ -92,14 +92,14 @@ export class FlowAttorneyCard extends LitElement {
 
     .attorney-image:hover {
       transform: scale(1.05);
-      border-color: var(--github-accent-primary, #2563eb);
+      border-color: var(--subsection-image-hover, #2563eb);
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     }
 
     .attorney-name {
       font-size: 1.25rem;
       font-weight: bold;
-      color: var(--github-bg-primary, #0d1117);
+      color: var(--subsection-text-title, #0d1117);
       margin-bottom: 1px;
       line-height: 1.3;
     }
@@ -142,8 +142,8 @@ export class FlowAttorneyCard extends LitElement {
       font-weight: 500;
       background: linear-gradient(
         135deg,
-        var(--github-accent-primary, #2563eb) 0%,
-        var(--github-accent-secondary, #7c3aed) 100%
+        var(--subsection-tag-gradient-start, #2563eb) 0%,
+        var(--subsection-tag-gradient-end, #7c3aed) 100%
       );
       color: white;
       transition: all 0.2s ease;
@@ -178,7 +178,7 @@ export class FlowAttorneyCard extends LitElement {
       align-items: center;
       justify-content: center;
       font-size: 12px;
-      color: var(--github-accent-primary, #2563eb);
+      color: var(--subsection-flip-indicator, #2563eb);
       border: 1px solid rgba(37, 99, 235, 0.2);
       transition: all 0.3s ease;
     }
@@ -198,7 +198,7 @@ export class FlowAttorneyCard extends LitElement {
     .back-header h3 {
       font-size: 1.25rem;
       font-weight: bold;
-      color: var(--github-bg-primary, #0d1117);
+      color: var(--subsection-text-title, #0d1117);
       margin: 0;
     }
 
@@ -209,7 +209,7 @@ export class FlowAttorneyCard extends LitElement {
     .bio-section h4 {
       font-size: 1rem;
       font-weight: 600;
-      color: var(--github-accent-primary, #2563eb);
+      color: var(--subsection-text-subtitle, #2563eb);
       margin: 0 0 8px 0;
       padding-bottom: 4px;
       border-bottom: 1px solid #e5e7eb;

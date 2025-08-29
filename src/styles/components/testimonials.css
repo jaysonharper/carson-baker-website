@@ -7,7 +7,7 @@
   .testimonial-item {
     @apply p-6 rounded-xl border-l-4;
     background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-    border-left-color: var(--github-accent-primary);
+    border-left-color: var(--subsection-border-left);
   }
 
   .testimonial-item p {
@@ -16,6 +16,6 @@
 
   .testimonial-item cite {
     @apply text-sm font-semibold;
-    color: var(--github-accent-secondary);
+    color: var(--subsection-cite);
   }
 }

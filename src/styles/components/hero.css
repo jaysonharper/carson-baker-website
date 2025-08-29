@@ -4,8 +4,8 @@
     @apply min-h-screen flex items-center justify-center;
     background: linear-gradient(
       135deg,
-      var(--github-bg-primary) 0%,
-      var(--github-bg-secondary) 100%
+      var(--hero-bg-gradient-start) 0%,
+      var(--hero-bg-gradient-end) 100%
     );
     padding-top: 80px;
     position: relative;
@@ -41,9 +41,9 @@
     @apply text-5xl md:text-6xl lg:text-7xl font-bold mb-6;
     background: linear-gradient(
       135deg,
-      var(--github-text-primary) 0%,
-      var(--github-accent-secondary) 50%,
-      var(--github-accent-primary) 100%
+      var(--hero-text-title-gradient-start) 0%,
+      var(--hero-text-title-gradient-middle) 50%,
+      var(--hero-text-title-gradient-end) 100%
     );
     background-clip: text;
     -webkit-background-clip: text;
@@ -53,7 +53,7 @@
 
   .hero-subtitle {
     @apply text-xl md:text-2xl mb-12;
-    color: var(--github-text-secondary);
+    color: var(--hero-text-subtitle);
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
