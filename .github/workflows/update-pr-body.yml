@@ -44,8 +44,12 @@ jobs:
           fi
 
           # Collect commit subjects between base and head (exclude merge commits from GitHub UI)
-          commit_range="origin/${BASE_REF}..${HEAD_SHA}"
-          mapfile -t commits < <(git log --pretty=format:'%s' $commit_range | grep -v '^Merge pull request' || true)
+          # Prefer comparing branch refs (BASE_REF..HEAD_REF) for readability; fall back to SHA range
+          commit_range="origin/${BASE_REF}..origin/${HEAD_REF}"
+          if ! git rev-parse --verify "origin/${HEAD_REF}" >/dev/null 2>&1; then
+            commit_range="origin/${BASE_REF}..${HEAD_SHA}"
+          fi
+          mapfile -t commits < <(git log --pretty=format:'%s' $commit_range | grep -v '^Merge pull request' || true || true)
 
           if [ ${#commits[@]} -eq 0 ]; then
             commits=("Update")
