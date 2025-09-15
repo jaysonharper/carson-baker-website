@@ -36,6 +36,7 @@ export class FlowNavbar extends LitElement {
       padding: 0.5rem;
       border-radius: 0.375rem;
       transition: background-color 0.2s ease;
+      transform: scale(1.5);
     }
 
     .menu-toggle:hover {
@@ -113,6 +114,25 @@ export class FlowNavbar extends LitElement {
       text-shadow: 0 0 40px rgba(124, 58, 237, 0.5);
     }
 
+    /* Static Scales of Justice Icon */
+    .justice-icon {
+      /* Mobile: smaller */
+      width: 48px;
+      height: 48px;
+      margin-left: 0.5rem;
+      flex-shrink: 0;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    @media (min-width: 768px) {
+      .justice-icon {
+        /* Tablet: medium */
+        width: 72px;
+        height: 72px;
+      }
+    }
+
     /* Navigation Menu */
     .nav-menu {
       position: absolute;
@@ -187,7 +207,7 @@ export class FlowNavbar extends LitElement {
     @media (min-width: 768px) {
       .menu-toggle {
         padding: 0.6rem;
-        transform: scale(1.1);
+        transform: scale(2);
       }
 
       .menu-toggle span {
@@ -211,7 +231,7 @@ export class FlowNavbar extends LitElement {
 
       .menu-toggle {
         padding: 0.7rem;
-        transform: scale(1.25);
+        transform: scale(2);
       }
 
       .menu-toggle span {
@@ -263,8 +283,43 @@ export class FlowNavbar extends LitElement {
           <div class="company-line-2">Carson & Baker</div>
         </div>
 
-        <!-- Scales of Justice Icon -->
-        <flow-scales-icon></flow-scales-icon>
+        <!-- Scales of Justice Icon (static, bright white) -->
+        <svg
+          class="justice-icon"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+          role="img"
+          aria-label="Scales of Justice"
+        >
+          <!-- Beam -->
+          <rect x="5" y="7" width="14" height="2" rx="1" fill="#ffffff" />
+          <!-- Center pole -->
+          <rect x="11" y="5" width="2" height="12" rx="1" fill="#ffffff" />
+          <!-- Base -->
+          <rect x="8" y="17" width="8" height="2" rx="1" fill="#ffffff" />
+          <!-- Hub detail -->
+          <circle cx="12" cy="8" r="1" fill="#ffffff" />
+          <!-- Chains -->
+          <line
+            x1="7"
+            y1="9"
+            x2="7"
+            y2="13"
+            stroke="#ffffff"
+            stroke-width="1.5"
+          />
+          <line
+            x1="17"
+            y1="9"
+            x2="17"
+            y2="13"
+            stroke="#ffffff"
+            stroke-width="1.5"
+          />
+          <!-- Pans -->
+          <ellipse cx="7" cy="15" rx="3" ry="1.2" fill="#ffffff" />
+          <ellipse cx="17" cy="15" rx="3" ry="1.2" fill="#ffffff" />
+        </svg>
 
         <!-- Navigation Menu -->
         <div class="nav-menu ${this.mobileMenuOpen ? "active" : ""}">

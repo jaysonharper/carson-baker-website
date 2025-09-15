@@ -338,15 +338,7 @@ function setupComponentEvents() {
     // Note: Scroll confirmation alerts can be added explicitly when needed
   });
 
-  // Listen for scales icon events
-  document.addEventListener("scales-click", (e) => {
-    // Track scales interaction
-    trackEvent("scales_icon_clicked", {
-      timestamp: e.detail.timestamp,
-      current_state: e.detail.currentState,
-      source: "navbar_scales_icon",
-    });
-  });
+  // Note: Scales icon events removed (component replaced with static SVG)
 
   // Listen for floating call button events
   document.addEventListener("flow-floating-call-click", (e) => {
