@@ -300,7 +300,7 @@ export class FlowFloatingCallButton extends LitElement {
     });
   }
 
-  _handleCall(e) {
+  _handleCall(_e) {
     // Dispatch custom event for analytics
     this.dispatchEvent(
       new CustomEvent("flow-floating-call-click", {
