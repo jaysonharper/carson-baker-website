@@ -52,7 +52,7 @@ const Template = (args) => html`
     ?disabled="${args.disabled}"
     ?loading="${args.loading}"
     type="${args.type}"
-    @flow-click="${(e) => {
+    @flow-click="${(_e) => {
       /* Event logged in development mode */
     }}"
   >

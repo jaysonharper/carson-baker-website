@@ -167,20 +167,20 @@ export const InteractiveDemo = () => {
 
   // Add event listeners for demonstration (development only)
   if (typeof import.meta !== "undefined" && import.meta.env?.DEV) {
-    brettCard.addEventListener("card-flip", (e) => {
-      console.log("Brett card flipped:", e.detail);
+    brettCard.addEventListener("card-flip", (_e) => {
+      console.log("Brett card flipped:", _e.detail);
     });
 
-    randallCard.addEventListener("card-flip", (e) => {
-      console.log("Randall card flipped:", e.detail);
+    randallCard.addEventListener("card-flip", (_e) => {
+      console.log("Randall card flipped:", _e.detail);
     });
 
-    brettCard.addEventListener("specialty-click", (e) => {
-      console.log("Specialty clicked on Brett card:", e.detail);
+    brettCard.addEventListener("specialty-click", (_e) => {
+      console.log("Specialty clicked on Brett card:", _e.detail);
     });
 
-    randallCard.addEventListener("specialty-click", (e) => {
-      console.log("Specialty clicked on Randall card:", e.detail);
+    randallCard.addEventListener("specialty-click", (_e) => {
+      console.log("Specialty clicked on Randall card:", _e.detail);
     });
   }
 

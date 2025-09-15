@@ -15,7 +15,7 @@ import "./flow-call-button.js";
 import "./flow-floating-call-button.js";
 
 // Icons & Graphics
-import "./flow-scales-icon.js";
+// Note: Scales icon is now inlined as a static SVG in the navbar.
 
 // Export for programmatic access
 // UI Components
@@ -31,7 +31,7 @@ export { FlowCallButton } from "./flow-call-button.js";
 export { FlowFloatingCallButton } from "./flow-floating-call-button.js";
 
 // Icons & Graphics
-export { FlowScalesIcon } from "./flow-scales-icon.js";
+// export { FlowScalesIcon } from "./flow-scales-icon.js"; // Not used
 
 if (typeof import.meta !== "undefined" && import.meta.env?.DEV) {
   console.log("🎨 Flow Components loaded successfully");

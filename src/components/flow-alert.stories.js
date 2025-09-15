@@ -44,7 +44,7 @@ const Template = (args) => html`
     ?dismissible="${args.dismissible}"
     ?icon="${args.icon}"
     ?visible="${args.visible}"
-    @flow-alert-closed="${(e) => {
+    @flow-alert-closed="${(_e) => {
       /* Event logged in development mode */
     }}"
   >

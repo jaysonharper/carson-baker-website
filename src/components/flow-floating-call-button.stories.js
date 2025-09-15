@@ -127,7 +127,7 @@ export const InteractiveDemo = () => {
       id="demo-floating-call"
       phone-number="+1-555-LAW-FIRM"
       ?visible="${isVisible}"
-      @flow-floating-call-click="${(e) => {
+      @flow-floating-call-click="${(_e) => {
         /* Event logged in development mode */
       }}"
     ></flow-floating-call-button>
@@ -193,7 +193,7 @@ export const PositioningComparison = () => html`
       phone-number="+15032889291"
       visible="true"
       style="position: absolute;"
-      @flow-floating-call-click="${(e) => {
+      @flow-floating-call-click="${(_e) => {
         /* Event logged in development mode */
       }}"
     ></flow-floating-call-button>

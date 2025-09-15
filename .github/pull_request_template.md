@@ -1,11 +1,8 @@
+## Pull Request Template
+
 ## Summary
 
 Describe the changes introduced by this PR.
-
-## Changes
-
--
--
 
 ## Motivation / Context
 
@@ -34,3 +31,12 @@ Steps to verify:
 ## Additional Notes
 
 _Anything else reviewers should know._
+
+## Workflow
+
+1. **Branching**: Create a new branch for each feature or bug fix.
+2. **Development**: Implement changes in the respective branch.
+3. **Testing**: Run tests to ensure functionality.
+4. **Code Review**: Submit a pull request for review.
+5. **Merge**: Once approved, merge into the main branch.
+6. **Deployment**: Deploy the changes to production.

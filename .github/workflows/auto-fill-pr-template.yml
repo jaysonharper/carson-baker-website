@@ -1,0 +1,84 @@
+name: Auto-fill PR Template
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  fill-template:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Update PR body with commit list
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const pull_number = context.payload.pull_request.number;
+
+            // Current PR body (already includes the template on open)
+            const currentBody = context.payload.pull_request.body || '';
+
+            // Fetch commits on this PR
+            const commits = await github.paginate(github.rest.pulls.listCommits, {
+              owner,
+              repo,
+              pull_number,
+              per_page: 100,
+            });
+
+            const lines = commits.map(c => {
+              const subject = (c.commit.message || '').split('\n')[0];
+              return `- ${c.sha.substring(0,7)} ${subject}`;
+            });
+
+            const commitSection = `### Commits\n\n${lines.join('\n')}\n`;
+
+            // Also gather changed files for a quick bullet list of touched paths
+            const files = await github.paginate(github.rest.pulls.listFiles, {
+              owner,
+              repo,
+              pull_number,
+              per_page: 100,
+            });
+            const changedFiles = files
+              .slice(0, 50) // cap to avoid enormous bodies
+              .map(f => `- ${f.filename} (${f.status}${f.additions || f.deletions ? `: +${f.additions}/-${f.deletions}` : ''})`)
+              .join('\n');
+
+            const filesSection = changedFiles
+              ? `### Changes\n\n${changedFiles}\n`
+              : '';
+
+            // Build a description summary based on PR title and first commit
+            const prTitle = context.payload.pull_request.title || '';
+            const firstCommitSubject = (commits[0]?.commit?.message || '').split('\n')[0];
+            const descriptionText = prTitle || firstCommitSubject || 'Describe the changes introduced by this PR.';
+            const descriptionSection = `### Description\n\n${descriptionText}\n`;
+
+            // Utility to replace or insert a section by heading
+            function upsertSection(body, heading, sectionContent) {
+              const pattern = new RegExp(`(^|\n)${heading}[\s\S]*?(?=\n### |$)`, 'm');
+              if (pattern.test(body)) {
+                return body.replace(pattern, `\n${sectionContent}`);
+              }
+              return `${body}\n\n${sectionContent}`;
+            }
+
+            let updatedBody = currentBody;
+            updatedBody = upsertSection(updatedBody, '### Description', descriptionSection);
+            if (filesSection) {
+              updatedBody = upsertSection(updatedBody, '### Changes', filesSection);
+            }
+            updatedBody = upsertSection(updatedBody, '### Commits', commitSection);
+
+            if (updatedBody.trim() !== currentBody.trim()) {
+              await github.rest.pulls.update({ owner, repo, pull_number, body: updatedBody });
+              core.info('PR body updated with commit list.');
+            } else {
+              core.info('PR body already up to date.');
+            }
