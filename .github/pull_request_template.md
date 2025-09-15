@@ -1,31 +1,8 @@
 ## Pull Request Template
 
-### Description
-
-<!-- Please include a summary of the changes and the related issue. -->
-
-### Commits
-
-<!-- List of commits included in this pull request -->
-
-### Checklist
-
-- [ ] I have read the contributing guidelines.
-- [ ] I have added tests to cover my changes.
-- [ ] All new and existing tests passed.
-
-### Additional Notes
-
-<!-- Any additional information or context for the reviewer. -->
-
 ## Summary
 
 Describe the changes introduced by this PR.
-
-## Changes
-
--
--
 
 ## Motivation / Context
 
