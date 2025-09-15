@@ -28,7 +28,13 @@ jobs:
         id: findpr
         run: |
           branch="${{ steps.vars.outputs.branch }}"
-          existing=$(gh pr list --head "$branch" --json number --jq '.[0].number' || true)
+          owner="${GITHUB_REPOSITORY%/*}"
+          repo="${GITHUB_REPOSITORY#*/}"
+          resp=$(curl -sS \
+            -H "Authorization: Bearer $GITHUB_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/$owner/$repo/pulls?head=${{ github.repository_owner }}:$branch&state=open&per_page=1")
+          existing=$(echo "$resp" | jq -r '.[0].number // empty')
           echo "existing_pr=$existing" >> $GITHUB_OUTPUT
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -39,7 +45,17 @@ jobs:
           branch="${{ steps.vars.outputs.branch }}"
           title="${{ steps.vars.outputs.title }}: Automated PR"
           body="Automated PR for branch: $branch\n\nThis PR was opened automatically. Update the description as needed."
-          gh pr create --base main --head "$branch" --title "$title" --body "$body" --assignee "jaysonharper"
+          data=$(jq -n \
+            --arg title "$title" \
+            --arg head "$branch" \
+            --arg base "main" \
+            --arg body "$body" \
+            '{title:$title, head:$head, base:$base, body:$body, maintainer_can_modify:true, draft:false}')
+          curl -sS -X POST \
+            -H "Authorization: Bearer $GITHUB_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            https://api.github.com/repos/${GITHUB_REPOSITORY}/pulls \
+            -d "$data"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -47,16 +63,35 @@ jobs:
         if: steps.findpr.outputs.existing_pr != ''
         run: |
           num="${{ steps.findpr.outputs.existing_pr }}"
-            gh pr comment "$num" --body "Push detected (branch updated). Workflow confirmed PR #$num still open."
+          data=$(jq -n --arg body "Push detected (branch updated). Workflow confirmed PR #$num still open." '{body:$body}')
+          curl -sS -X POST \
+            -H "Authorization: Bearer $GITHUB_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            https://api.github.com/repos/${GITHUB_REPOSITORY}/issues/$num/comments \
+            -d "$data"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Ensure assignee present
         run: |
           branch="${{ steps.vars.outputs.branch }}"
-          num=$(gh pr list --head "$branch" --json number --jq '.[0].number')
+          owner="${GITHUB_REPOSITORY%/*}"
+          repo="${GITHUB_REPOSITORY#*/}"
+          num="${{ steps.findpr.outputs.existing_pr }}"
+          if [ -z "$num" ]; then
+            resp=$(curl -sS \
+              -H "Authorization: Bearer $GITHUB_TOKEN" \
+              -H "Accept: application/vnd.github+json" \
+              "https://api.github.com/repos/$owner/$repo/pulls?head=${{ github.repository_owner }}:$branch&state=open&per_page=1")
+            num=$(echo "$resp" | jq -r '.[0].number // empty')
+          fi
           if [ -n "$num" ]; then
-            gh pr edit "$num" --add-assignee "jaysonharper"
+            data=$(jq -n --argjson arr '["jaysonharper"]' '{assignees:$arr}')
+            curl -sS -X POST \
+              -H "Authorization: Bearer $GITHUB_TOKEN" \
+              -H "Accept: application/vnd.github+json" \
+              https://api.github.com/repos/${GITHUB_REPOSITORY}/issues/$num/assignees \
+              -d '{"assignees":["jaysonharper"]}'
           fi
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
