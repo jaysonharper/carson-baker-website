@@ -1,0 +1,44 @@
+name: Auto-fill PR Template
+
+on:
+  pull_request:
+    types: [opened, edited]
+
+jobs:
+  fill-template:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Get commit messages
+        id: get_commits
+        run: |
+          commits=$(git log --format='%s')
+          echo "Commits:" > commits.txt
+          echo "$commits" >> commits.txt
+          echo "commit_messages<<EOF" >> $GITHUB_OUTPUT
+          cat commits.txt >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Create PR body
+        id: create_body
+        run: |
+          echo "## Pull Request Template" > pr_body.md
+          echo "### Description" >> pr_body.md
+          echo "<!-- Please provide a description of your changes. -->" >> pr_body.md
+          echo "### Checklist" >> pr_body.md
+          echo "- [ ] I have read the contributing guidelines." >> pr_body.md
+          echo "- [ ] I have added tests to cover my changes." >> pr_body.md
+          echo "- [ ] All new and existing tests pass." >> pr_body.md
+          echo "" >> pr_body.md
+          echo "### Commits" >> pr_body.md
+          cat commits.txt >> pr_body.md
+          echo "pr_body<<EOF" >> $GITHUB_OUTPUT
+          cat pr_body.md >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Update PR body
+        run: gh pr edit --body-file pr_body.md
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
