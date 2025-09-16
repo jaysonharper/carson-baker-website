@@ -6,7 +6,7 @@
 
   .contact-item h3 {
     @apply text-xl font-bold mb-4;
-    color: var(--github-bg-primary);
+    color: var(--subsection-text-title);
   }
 
   .contact-item p {

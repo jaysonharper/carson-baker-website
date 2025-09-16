@@ -49,18 +49,6 @@ I have successfully implemented the navigation bar feature for Law Offices of Ca
 
 #### ✅ GitHub-Inspired Color Palette
 
-```css
---github-bg-primary: #0d1117;
---github-bg-secondary: #161b22;
---github-bg-tertiary: #21262d;
---github-border-primary: #30363d;
---github-text-primary: #f0f6fc;
---github-text-secondary: #8b949e;
---github-accent-primary: #2563eb;
---github-accent-secondary: #7c3aed;
---github-success: #238636;
-```
-
 #### ✅ Professional Animations
 
 - **Smooth transitions** for all interactive elements

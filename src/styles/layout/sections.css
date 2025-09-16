@@ -18,8 +18,8 @@
     @apply text-4xl md:text-5xl font-bold text-center mb-12;
     background: linear-gradient(
       135deg,
-      var(--github-bg-primary) 0%,
-      var(--github-accent-secondary) 100%
+      var(--section-text-title-gradient-start) 0%,
+      var(--section-text-title-gradient-end) 100%
     );
     background-clip: text;
     -webkit-background-clip: text;
@@ -44,8 +44,8 @@
     height: 4px;
     background: linear-gradient(
       90deg,
-      var(--github-accent-primary) 0%,
-      var(--github-accent-secondary) 100%
+      var(--section-card-border-gradient-start) 0%,
+      var(--section-card-border-gradient-end) 100%
     );
   }
 
