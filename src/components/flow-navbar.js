@@ -13,9 +13,18 @@ export class FlowNavbar extends LitElement {
       left: 0;
       right: 0;
       z-index: 1000;
-      background: linear-gradient(135deg, #0d1117 0%, #161b22 100%);
+      /* background: var(--nav-bg); */
+      background: linear-gradient(
+        0deg,
+        var(--nav-bg-gradient-start) 0%,
+        var(--nav-bg-gradient-end) 90%
+      );
       border-bottom: 1px solid #30363d;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      /* Ensure Poppins is used inside Shadow DOM when available */
+      font-family: "Poppins", ui-sans-serif, system-ui, -apple-system,
+        BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+        "Noto Sans", sans-serif;
     }
 
     .navbar {
@@ -64,53 +73,33 @@ export class FlowNavbar extends LitElement {
       transform: rotate(-45deg) translate(7px, -6px);
     }
 
-    /* Company Name */
-    .company-name {
-      text-align: center;
-      flex-grow: 1;
-      margin: 0 1rem;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      padding: 0.5rem;
-      border-radius: 0.375rem;
+    /* Logo Container */
+    .logo-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* Centers the text horizontally */
+      text-align: center; /* fallback for older browsers */
+      font-family: inherit;
+      color: #333; /* A dark, professional gray */
     }
 
-    .company-name:hover {
-      background-color: rgba(124, 58, 237, 0.1);
+    .logo-container:hover {
       transform: translateY(-1px);
+      cursor: pointer;
+      transition: transform 0.2s ease;
     }
 
-    .company-line-1 {
-      font-size: 1.125rem;
-      font-weight: 300;
-      color: #8b949e;
-      letter-spacing: 0.025em;
-      margin-bottom: -2px;
-      transition: color 0.2s ease;
+    .logo-text {
+      font-size: 1.25em;
+      font-weight: 600; /* Bold weight */
+      color: var(--nav-logo-text);
+      letter-spacing: 0.05em; /* Tighter spacing for the main text */
+      transition: color 0.3s ease-in-out;
+      text-transform: uppercase; /* All caps for a professional feel */
+      -webkit-text-stroke: 1px #696949; /* 2px black border */
     }
 
-    .company-name:hover .company-line-1 {
-      color: #f0f6fc;
-    }
-
-    .company-line-2 {
-      font-size: 1.375rem;
-      font-weight: 700;
-      background: linear-gradient(
-        135deg,
-        #f0f6fc 0%,
-        #7c3aed 50%,
-        #2563eb 100%
-      );
-      background-clip: text;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      letter-spacing: 0.05em;
-      text-shadow: 0 0 30px rgba(124, 58, 237, 0.3);
-      transition: all 0.2s ease;
-    }
-
-    .company-name:hover .company-line-2 {
+    .logo-container:hover .logo-text {
       text-shadow: 0 0 40px rgba(124, 58, 237, 0.5);
     }
 
@@ -123,14 +112,12 @@ export class FlowNavbar extends LitElement {
       flex-shrink: 0;
       display: inline-block;
       vertical-align: middle;
+      fill: #fff;
     }
 
-    @media (min-width: 768px) {
-      .justice-icon {
-        /* Tablet: medium */
-        width: 72px;
-        height: 72px;
-      }
+    .justice-icon path {
+      stroke: #696949;
+      stroke-width: 20;
     }
 
     /* Navigation Menu */
@@ -215,12 +202,14 @@ export class FlowNavbar extends LitElement {
         height: 2.2px;
       }
 
-      .company-line-1 {
-        font-size: 1.25rem;
+      .logo-text {
+        font-size: 1.5rem;
       }
 
-      .company-line-2 {
-        font-size: 1.5rem;
+      .justice-icon {
+        /* Tablet: medium */
+        width: 72px;
+        height: 72px;
       }
     }
 
@@ -239,12 +228,8 @@ export class FlowNavbar extends LitElement {
         height: 2.5px;
       }
 
-      .company-line-1 {
-        font-size: 1.375rem;
-      }
-
-      .company-line-2 {
-        font-size: 1.75rem;
+      .logo-text {
+        font-size: 2.5rem;
       }
     }
   `;
@@ -273,52 +258,26 @@ export class FlowNavbar extends LitElement {
 
         <!-- Company Name -->
         <div
-          class="company-name"
+          class="logo-container"
           @click="${this._scrollToTop}"
           role="button"
           tabindex="0"
+          aria-label="Law Offices of Carson & Baker - Home"
           @keydown="${this._handleCompanyNameKeydown}"
         >
-          <div class="company-line-1">Law Offices of</div>
-          <div class="company-line-2">Carson & Baker</div>
+          <span class="logo-text">Carson & Baker</span>
         </div>
 
         <!-- Scales of Justice Icon (static, bright white) -->
         <svg
           class="justice-icon"
-          viewBox="0 0 24 24"
           xmlns="http://www.w3.org/2000/svg"
-          role="img"
-          aria-label="Scales of Justice"
+          viewBox="0 0 640 640"
         >
-          <!-- Beam -->
-          <rect x="5" y="7" width="14" height="2" rx="1" fill="#ffffff" />
-          <!-- Center pole -->
-          <rect x="11" y="5" width="2" height="12" rx="1" fill="#ffffff" />
-          <!-- Base -->
-          <rect x="8" y="17" width="8" height="2" rx="1" fill="#ffffff" />
-          <!-- Hub detail -->
-          <circle cx="12" cy="8" r="1" fill="#ffffff" />
-          <!-- Chains -->
-          <line
-            x1="7"
-            y1="9"
-            x2="7"
-            y2="13"
-            stroke="#ffffff"
-            stroke-width="1.5"
+          <!--!Font Awesome Free v7.0.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+          <path
+            d="M384 96L512 96C529.7 96 544 110.3 544 128C544 145.7 529.7 160 512 160L398.4 160C393.2 185.8 375.5 207.1 352 217.3L352 512L512 512C529.7 512 544 526.3 544 544C544 561.7 529.7 576 512 576L128 576C110.3 576 96 561.7 96 544C96 526.3 110.3 512 128 512L288 512L288 217.3C264.5 207 246.8 185.7 241.6 160L128 160C110.3 160 96 145.7 96 128C96 110.3 110.3 96 128 96L256 96C270.6 76.6 293.8 64 320 64C346.2 64 369.4 76.6 384 96zM439.6 384L584.4 384L512 259.8L439.6 384zM512 480C449.1 480 396.8 446 386 401.1C383.4 390.1 387 378.8 392.7 369L487.9 205.8C492.9 197.2 502.1 192 512 192C521.9 192 531.1 197.3 536.1 205.8L631.3 369C637 378.8 640.6 390.1 638 401.1C627.2 445.9 574.9 480 512 480zM126.8 259.8L54.4 384L199.3 384L126.8 259.8zM.9 401.1C-1.7 390.1 1.9 378.8 7.6 369L102.8 205.8C107.8 197.2 117 192 126.9 192C136.8 192 146 197.3 151 205.8L246.2 369C251.9 378.8 255.5 390.1 252.9 401.1C242.1 445.9 189.8 480 126.9 480C64 480 11.7 446 .9 401.1z"
           />
-          <line
-            x1="17"
-            y1="9"
-            x2="17"
-            y2="13"
-            stroke="#ffffff"
-            stroke-width="1.5"
-          />
-          <!-- Pans -->
-          <ellipse cx="7" cy="15" rx="3" ry="1.2" fill="#ffffff" />
-          <ellipse cx="17" cy="15" rx="3" ry="1.2" fill="#ffffff" />
         </svg>
 
         <!-- Navigation Menu -->

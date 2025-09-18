@@ -1,12 +1,21 @@
 /* Theme color palette */
 :root {
-  /* SAMPLE PALETTE */
-  /* --maya-blue: #67c7ffff;
-  --light-sky-blue: #80d0ffff;
-  --pale-azure: #9adaffff;
-  --uranian-blue: #b3e3ffff;
-  --columbia-blue: #cdecffff;
-  --alice-blue: #e6f6ffff; */
+  /* UO Classic Football palette */
+  --duck-dark-green: #288e15;
+  --duck-mid-green: #23a62f;
+  --duck-light-green: #30bb00;
+  --duck-bold-yellow: #f0f911;
+  --duck-soft-yellow: #fffd76;
+
+  /* Oregon Tech Owls */
+  --owls-gold: #f6b930;
+  --owls-blue: #033a6b;
+  --owls-light-gray: #bbbbbb;
+  --owls-dark-gray: #aaaaaa;
+
+  --navy-blue: #183153;
+  --olive-dark-green: #545a3a;
+  --olive-green: #708238;
 
   /* ******************************************** */
   /*    =========== ORIGINAL COLORS ===========   */
@@ -44,25 +53,35 @@
   /* [none] */
 
   /* ******************************************** */
-  /*    =========== NEW COLORS ===========        */
+  /* -------------------------------------------- */
+  /*    ===== NEW COLORS =====                    */
+  /* -------------------------------------------- */
   /* ******************************************** */
 
-  /* Navbar colors */
+  /* ---------------------- */
+  /* Navbar colors          */
+  /* ---------------------- */
 
-  /* --nav-bg-gradient-start: var(--uranian-blue);
-  --nav-bg-gradient-end: var(--light-sky-blue);
-  --nav-text-line1: var(--alice-blue);
-  --nav-text-line2-gradient-start: var(--main-text-primary);
-  --nav-text-line2-gradient-end: var(--main-text-secondary);
-  --nav-text-hover: var(--light-sky-blue); */
+  --nav-bg: var(--olive-dark-green);
+  --nav-bg-gradient-start: var(--olive-dark-green);
+  --nav-bg-gradient-end: var(--owls-dark-gray);
+  --nav-logo-text: white;
+  --nav-logo-text-gradient-start: var(--owls-dark-gray);
+  --nav-logo-text-gradient-middle: var(--owls-light-gray);
+  --nav-logo-text-gradient-end: var(--owls-dark-gray);
+  /* --nav-text-hover: var(--light-sky-blue); */
 
-  /* Nav Link colors */
+  /* ---------------------- */
+  /* Nav Link colors        */
+  /* ---------------------- */
 
   /* --navlink-text: var(--alice-blue);
   --navlink-text-hover: var(--alice-blue);
   --navlink-hover: var(--alice-blue); */
 
-  /* Hero colors */
+  /* ---------------------- */
+  /* Hero colors            */
+  /* ---------------------- */
 
   --hero-bg-gradient-start: var(--orig-hero-bg-gradient-start);
   --hero-bg-gradient-end: var(--orig-hero-bg-gradient-end);
@@ -78,7 +97,9 @@
   --hero-btn-hover-gradient-start: var(--main-accent-hover);
   --hero-btn-hover-gradient-end: var(--main-accent-hover); */
 
-  /* Section colors */
+  /* ---------------------- */
+  /* Section colors         */
+  /* ---------------------- */
 
   /* --section-bg-gradient-start: var(--light-sky-blue);
   --section-bg-gradient-end: var(--pale-azure); */
@@ -97,8 +118,9 @@
   --section-card-border-gradient-end: var(
     --orig-section-card-border-gradient-end
   );
-
-  /* Subsection colors */
+  /* ---------------------- */
+  /* Subsection colors      */
+  /* ---------------------- */
 
   /* --subsection-text-summary: var(--alice-blue);
   --subsection-card-bg-gradient-start: var(--light-sky-blue);
@@ -124,7 +146,9 @@
   --subsection-tag-gradient-end: var(--orig-subsection-tag-gradient-end);
   --subsection-cite: var(--orig-subsection-cite);
 
-  /* Footer colors */
+  /* ---------------------- */
+  /* Footer colors          */
+  /* ---------------------- */
 
   /* --footer-bg-gradient-start: var(--light-sky-blue);
   --footer-bg-gradient-end: var(--pale-azure);
