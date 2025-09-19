@@ -13,6 +13,7 @@
   --owls-light-gray: #bbbbbb;
   --owls-dark-gray: #aaaaaa;
 
+  /* Additional colors */
   --navy-blue: #183153;
   --olive-dark-green: #545a3a;
   --olive-green: #708238;
@@ -62,14 +63,13 @@
   /* Navbar colors          */
   /* ---------------------- */
 
-  --nav-bg: var(--olive-dark-green);
-  --nav-bg-gradient-start: var(--olive-dark-green);
-  --nav-bg-gradient-end: var(--owls-dark-gray);
+  --nav-bg: linear-gradient(
+    0deg,
+    var(--olive-dark-green) 0%,
+    var(--owls-dark-gray) 90%
+  );
   --nav-logo-text: white;
-  --nav-logo-text-gradient-start: var(--owls-dark-gray);
-  --nav-logo-text-gradient-middle: var(--owls-light-gray);
-  --nav-logo-text-gradient-end: var(--owls-dark-gray);
-  /* --nav-text-hover: var(--light-sky-blue); */
+  --nav-logo-text-hover: white;
 
   /* ---------------------- */
   /* Nav Link colors        */
@@ -83,19 +83,11 @@
   /* Hero colors            */
   /* ---------------------- */
 
-  --hero-bg-gradient-start: var(--orig-hero-bg-gradient-start);
-  --hero-bg-gradient-end: var(--orig-hero-bg-gradient-end);
-  --hero-text-title-gradient-start: var(--orig-hero-text-title-gradient-start);
-  --hero-text-title-gradient-middle: var(
-    --orig-hero-text-title-gradient-middle
-  );
-  --hero-text-title-gradient-end: var(--orig-hero-text-title-gradient-end);
-  --hero-text-subtitle: var(--orig-hero-text-subtitle);
-  /* --hero-text-summary: var(--alice-blue);
-  --hero-btn-gradient-start: var(--main-accent-primary);
-  --hero-btn-gradient-end: var(--main-accent-secondary);
-  --hero-btn-hover-gradient-start: var(--main-accent-hover);
-  --hero-btn-hover-gradient-end: var(--main-accent-hover); */
+  --hero-text-title: white;
+  --hero-text-subtitle: black;
+  --hero-text-subtitle-bg: linear-gradient(180deg, #fdffde, #5c5941);
+  --hero-call-btn-bg: linear-gradient(180deg, #e5e7eb 0%, #2c3305 100%);
+  --hero-call-btn-hover: linear-gradient(180deg, #ebe8ef 0%, #2a3d09 100%);
 
   /* ---------------------- */
   /* Section colors         */

@@ -13,12 +13,7 @@ export class FlowNavbar extends LitElement {
       left: 0;
       right: 0;
       z-index: 1000;
-      /* background: var(--nav-bg); */
-      background: linear-gradient(
-        0deg,
-        var(--nav-bg-gradient-start) 0%,
-        var(--nav-bg-gradient-end) 90%
-      );
+      background: var(--nav-bg);
       border-bottom: 1px solid #30363d;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
       /* Ensure Poppins is used inside Shadow DOM when available */
@@ -90,17 +85,18 @@ export class FlowNavbar extends LitElement {
     }
 
     .logo-text {
-      font-size: 1.25em;
-      font-weight: 600; /* Bold weight */
-      color: var(--nav-logo-text);
-      letter-spacing: 0.05em; /* Tighter spacing for the main text */
-      transition: color 0.3s ease-in-out;
-      text-transform: uppercase; /* All caps for a professional feel */
-      -webkit-text-stroke: 1px #696949; /* 2px black border */
+      font-size: 1.75em;
+      background: var(--hero-text-title);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.3))
+        drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2))
+        drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
     }
 
     .logo-container:hover .logo-text {
-      text-shadow: 0 0 40px rgba(124, 58, 237, 0.5);
+      text-shadow: 0 0 40px var(--nav-logo-text-hover);
     }
 
     /* Static Scales of Justice Icon */
@@ -203,7 +199,7 @@ export class FlowNavbar extends LitElement {
       }
 
       .logo-text {
-        font-size: 1.5rem;
+        font-size: 2rem;
       }
 
       .justice-icon {
