@@ -1,22 +1,12 @@
 /* Theme color palette */
 :root {
-  /* UO Classic Football palette */
-  --duck-dark-green: #288e15;
-  --duck-mid-green: #23a62f;
-  --duck-light-green: #30bb00;
-  --duck-bold-yellow: #f0f911;
-  --duck-soft-yellow: #fffd76;
+  /* Base colors */
 
-  /* Oregon Tech Owls */
-  --owls-gold: #f6b930;
-  --owls-blue: #033a6b;
-  --owls-light-gray: #bbbbbb;
-  --owls-dark-gray: #aaaaaa;
-
-  /* Additional colors */
-  --navy-blue: #183153;
-  --olive-dark-green: #545a3a;
-  --olive-green: #708238;
+  --owl-blue: #033a6b;
+  --owl-gray: #bbbbbb;
+  --owl-dark-gray: #aaaaaa;
+  --owl-dark-blue: #183153;
+  --window-blue: #6285a3;
 
   /* ******************************************** */
   /*    =========== ORIGINAL COLORS ===========   */
@@ -29,7 +19,6 @@
   --orig-hero-text-title-gradient-start: #f0f6fc;
   --orig-hero-text-title-gradient-middle: #7c3aed;
   --orig-hero-text-title-gradient-end: #2563eb;
-  --orig-hero-text-subtitle: #8b949e;
   /* section */
   --orig-section-text-title-gradient-start: #0d1117;
   --orig-section-text-title-gradient-end: #7c3aed;
@@ -63,11 +52,7 @@
   /* Navbar colors          */
   /* ---------------------- */
 
-  --nav-bg: linear-gradient(
-    0deg,
-    var(--olive-dark-green) 0%,
-    var(--owls-dark-gray) 90%
-  );
+  --nav-bg: linear-gradient(0deg, #28303b 0%, var(--owl-dark-gray) 90%);
   --nav-logo-text: white;
   --nav-logo-text-hover: white;
 
@@ -84,10 +69,8 @@
   /* ---------------------- */
 
   --hero-text-title: white;
-  --hero-text-subtitle: black;
-  --hero-text-subtitle-bg: linear-gradient(180deg, #fdffde, #5c5941);
-  --hero-call-btn-bg: linear-gradient(180deg, #e5e7eb 0%, #2c3305 100%);
-  --hero-call-btn-hover: linear-gradient(180deg, #ebe8ef 0%, #2a3d09 100%);
+  --hero-call-btn-bg: #777a80;
+  --hero-call-btn-hover: steelblue;
 
   /* ---------------------- */
   /* Section colors         */

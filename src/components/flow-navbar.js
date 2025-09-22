@@ -99,21 +99,61 @@ export class FlowNavbar extends LitElement {
       text-shadow: 0 0 40px var(--nav-logo-text-hover);
     }
 
+    /* Justice Icon Container for Tooltip */
+    .justice-icon-container {
+      position: relative;
+      display: inline-block;
+      margin-left: 0.5rem;
+    }
+
     /* Static Scales of Justice Icon */
     .justice-icon {
       /* Mobile: smaller */
       width: 48px;
       height: 48px;
-      margin-left: 0.5rem;
       flex-shrink: 0;
-      display: inline-block;
-      vertical-align: middle;
-      fill: #fff;
+      display: block;
+      color: #fff;
+      cursor: pointer;
     }
 
-    .justice-icon path {
-      stroke: #696949;
-      stroke-width: 20;
+    /* Tooltip element */
+    .tooltip {
+      position: absolute;
+      bottom: -35px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0, 0, 0, 0.9);
+      color: white;
+      padding: 6px 10px;
+      border-radius: 4px;
+      font-size: 12px;
+      white-space: nowrap;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+      pointer-events: none;
+      z-index: 1001;
+    }
+
+    /* Tooltip arrow */
+    .tooltip::before {
+      content: "";
+      position: absolute;
+      top: -5px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-bottom: 5px solid rgba(0, 0, 0, 0.9);
+    }
+
+    /* Show tooltip on hover */
+    .justice-icon-container:hover .tooltip {
+      opacity: 1;
+      visibility: visible;
     }
 
     /* Navigation Menu */
@@ -264,17 +304,65 @@ export class FlowNavbar extends LitElement {
           <span class="logo-text">Carson & Baker</span>
         </div>
 
-        <!-- Scales of Justice Icon (static, bright white) -->
-        <svg
-          class="justice-icon"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 640 640"
-        >
-          <!--!Font Awesome Free v7.0.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
-          <path
-            d="M384 96L512 96C529.7 96 544 110.3 544 128C544 145.7 529.7 160 512 160L398.4 160C393.2 185.8 375.5 207.1 352 217.3L352 512L512 512C529.7 512 544 526.3 544 544C544 561.7 529.7 576 512 576L128 576C110.3 576 96 561.7 96 544C96 526.3 110.3 512 128 512L288 512L288 217.3C264.5 207 246.8 185.7 241.6 160L128 160C110.3 160 96 145.7 96 128C96 110.3 110.3 96 128 96L256 96C270.6 76.6 293.8 64 320 64C346.2 64 369.4 76.6 384 96zM439.6 384L584.4 384L512 259.8L439.6 384zM512 480C449.1 480 396.8 446 386 401.1C383.4 390.1 387 378.8 392.7 369L487.9 205.8C492.9 197.2 502.1 192 512 192C521.9 192 531.1 197.3 536.1 205.8L631.3 369C637 378.8 640.6 390.1 638 401.1C627.2 445.9 574.9 480 512 480zM126.8 259.8L54.4 384L199.3 384L126.8 259.8zM.9 401.1C-1.7 390.1 1.9 378.8 7.6 369L102.8 205.8C107.8 197.2 117 192 126.9 192C136.8 192 146 197.3 151 205.8L246.2 369C251.9 378.8 255.5 390.1 252.9 401.1C242.1 445.9 189.8 480 126.9 480C64 480 11.7 446 .9 401.1z"
-          />
-        </svg>
+        <!-- Scales of Justice Icon with tooltip container -->
+        <div class="justice-icon-container">
+          <svg
+            class="justice-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 120 120"
+            fill="currentColor"
+            role="img"
+            aria-label="Justice Scales"
+          >
+            <!-- Base pedestal -->
+            <rect x="54" y="95" width="12" height="20" rx="2" />
+            <rect x="40" y="112" width="40" height="6" rx="3" />
+
+            <!-- Main vertical post -->
+            <rect x="58" y="25" width="4" height="70" rx="1" />
+
+            <!-- Top horizontal beam -->
+            <rect x="25" y="26" width="70" height="4" rx="2" />
+
+            <!-- Left chain -->
+            <g stroke="currentColor" stroke-width="1.5" fill="none">
+              <line x1="35" y1="30" x2="35" y2="48" />
+              <line x1="37" y1="30" x2="37" y2="48" />
+            </g>
+
+            <!-- Right chain -->
+            <g stroke="currentColor" stroke-width="1.5" fill="none">
+              <line x1="83" y1="30" x2="83" y2="48" />
+              <line x1="85" y1="30" x2="85" y2="48" />
+            </g>
+
+            <!-- Left scale pan (balanced position) -->
+            <ellipse cx="36" cy="55" rx="16" ry="3" fill="currentColor" />
+            <path
+              d="M20 55 Q20 59 24 61 L48 61 Q52 59 52 55"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            />
+
+            <!-- Right scale pan (balanced position) -->
+            <ellipse cx="84" cy="55" rx="16" ry="3" fill="currentColor" />
+            <path
+              d="M68 55 Q68 59 72 61 L96 61 Q100 59 100 55"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            />
+
+            <!-- Scale pan connection points -->
+            <circle cx="36" cy="48" r="2" fill="currentColor" />
+            <circle cx="84" cy="48" r="2" fill="currentColor" />
+
+            <!-- Decorative balance indicator on top -->
+            <circle cx="60" cy="24" r="3" fill="currentColor" opacity="0.8" />
+          </svg>
+          <div class="tooltip">Justice Scales</div>
+        </div>
 
         <!-- Navigation Menu -->
         <div class="nav-menu ${this.mobileMenuOpen ? "active" : ""}">

@@ -13,10 +13,10 @@ export class FlowCallButton extends LitElement {
     .call-button {
       display: flex;
       align-items: center;
-      background: linear-gradient(135deg, #238636 0%, #2ea043 100%);
+      background: steelblue;
       color: #f0f6fc;
       padding: 0.5rem 1rem;
-      border-radius: 0.5rem;
+      border-radius: 5px;
       text-decoration: none;
       font-weight: 600;
       font-size: 0.875rem;
@@ -146,14 +146,14 @@ export class FlowCallButton extends LitElement {
     :host([variant="hero"]) .call-button {
       background: var(--hero-call-btn-bg);
       border-color: #000000b8;
-      font-size: 1rem;
+      font-size: 2rem;
       padding: 0.75rem 1.5rem;
       box-shadow: 0 4px 12px rgb(0 0 0);
+      margin-top: 30px;
     }
 
     :host([variant="hero"]) .call-button:hover {
       background: var(--hero-call-btn-hover);
-      box-shadow: 0 8px 20px rgb(41 43 33);
     }
 
     :host([variant="hero"]) .phone-icon {
