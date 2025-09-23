@@ -55,7 +55,7 @@
     transform: translateY(-4px);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
     background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
-    border-color: #3b82f6;
+    border-color: var(--subsection-card-hover);
   }
 
   /* Flash highlight effect for clicked specialty tags */
@@ -117,9 +117,8 @@
 
   .highlight-details {
     @apply text-left pt-4 mt-3;
-    border-top: 2px solid #e5e7eb;
-    border-image: linear-gradient(90deg, #3b82f6 0%, #e5e7eb 50%, #3b82f6 100%)
-      1;
+    border-top: 3px solid #e5e7eb;
+    border-image: var(--subsection-divider);
     max-height: none;
     opacity: 1;
     overflow: visible;

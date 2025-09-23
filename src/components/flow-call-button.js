@@ -153,7 +153,7 @@ export class FlowCallButton extends LitElement {
     }
 
     :host([variant="hero"]) .call-button:hover {
-      background: var(--hero-call-btn-hover);
+      border: 2px, solid, white;
     }
 
     :host([variant="hero"]) .phone-icon {
@@ -205,7 +205,7 @@ export class FlowCallButton extends LitElement {
       }
 
       :host([variant="hero"]) .call-button {
-        font-size: 0.925rem;
+        font-size: 1.5rem;
         padding: 0.625rem 1.25rem;
       }
 

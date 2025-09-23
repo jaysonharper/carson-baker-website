@@ -188,8 +188,8 @@ export class FlowNavbar extends LitElement {
       width: 100%;
       text-align: center;
       padding: 0.75rem 1rem;
-      border: 1px solid #30363d;
-      color: #f0f6fc;
+      border: var(--navlink-text-border);
+      color: var(--navlink-text);
       text-decoration: none;
       font-weight: 600;
       font-size: 0.925rem;
@@ -207,17 +207,12 @@ export class FlowNavbar extends LitElement {
       left: -100%;
       width: 100%;
       height: 100%;
-      background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(124, 58, 237, 0.1),
-        transparent
-      );
+      background: var(--navlink-before);
       transition: left 0.5s ease;
     }
 
     .nav-link:hover {
-      color: #7c3aed;
+      color: var(--navlink-text-hover);
       background-color: #21262d;
       transform: translateY(-1px);
     }

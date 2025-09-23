@@ -14,12 +14,13 @@
   }
 
   .contact-item a {
-    @apply text-blue-600 underline;
+    @apply underline;
+    color: var(--subsection-links);
   }
 
   .contact-item a:hover,
   .contact-item a:focus {
-    @apply text-blue-800;
+    color: var(--subsection-links-hover);
     outline: none;
     text-decoration: underline;
   }

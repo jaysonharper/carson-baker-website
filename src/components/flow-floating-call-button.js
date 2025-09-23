@@ -33,17 +33,16 @@ export class FlowFloatingCallButton extends LitElement {
     .call-button {
       display: flex;
       align-items: center;
-      background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
-      color: #f0f6fc;
+      background: var(--float-call-btn-bg);
+      color: white;
       padding: 0.75rem 1.5rem;
       border-radius: 2rem;
       text-decoration: none;
       font-weight: 600;
       font-size: 1rem;
       transition: all 0.2s ease;
-      border: 2px solid rgba(37, 99, 235, 0.3);
-      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3),
-        0 2px 4px rgba(0, 0, 0, 0.1);
+      border: none;
+      box-shadow: var(--float-call-btn-shadow);
       cursor: pointer;
       white-space: nowrap;
       position: relative;
@@ -67,12 +66,11 @@ export class FlowFloatingCallButton extends LitElement {
     }
 
     .call-button:hover {
-      background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
+      background: var(--float-call-btn-hover);
       transform: translateY(-2px) scale(1.05);
-      box-shadow: 0 8px 20px rgba(124, 58, 237, 0.4),
-        0 4px 8px rgba(0, 0, 0, 0.15);
+      box-shadow: var(--float-call-btn-hover-shadow);
       border-color: rgba(168, 85, 247, 0.5);
-      color: #f0f6fc;
+      color: white;
     }
 
     .call-button:hover::before {
@@ -85,8 +83,7 @@ export class FlowFloatingCallButton extends LitElement {
 
     .call-button:focus {
       outline: none;
-      box-shadow: 0 8px 20px rgba(124, 58, 237, 0.4),
-        0 0 0 3px rgba(124, 58, 237, 0.3);
+      box-shadow: var(--float-call-btn-focus-shadow);
     }
 
     .phone-icon {
@@ -144,7 +141,7 @@ export class FlowFloatingCallButton extends LitElement {
       }
       50% {
         transform: scale(1.05);
-        box-shadow: 0 8px 20px rgba(124, 58, 237, 0.6);
+        box-shadow: var(--float-call-btn-pulse-shadow);
       }
     }
 
