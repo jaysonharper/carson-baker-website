@@ -1,6 +1,6 @@
 /* Animation Classes */
 .fade-in {
-  animation: fadeIn 0.6s ease-out;
+  animation: fadeIn 3s ease-out;
 }
 
 @keyframes fadeIn {

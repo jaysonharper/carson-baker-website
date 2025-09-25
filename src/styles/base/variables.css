@@ -2,13 +2,20 @@
 :root {
   /* Base Palette */
 
-  --owl-dark-gray: #aaaaaa;
+  --primary-color: steelblue;
+  --accent-color: #1e537e;
+  --bg-color: #4d5561;
+  --bg-accent-color: #e2e8f0;
 
   /* ---------------------- */
   /* Navbar colors          */
   /* ---------------------- */
 
-  --nav-bg: linear-gradient(0deg, #28303b 0%, var(--owl-dark-gray) 90%);
+  --nav-bg: linear-gradient(
+    0deg,
+    var(--accent-color) 0%,
+    var(--primary-color) 90%
+  );
   --nav-logo-text: white;
   --nav-logo-text-hover: white;
 
@@ -17,12 +24,12 @@
   /* ---------------------- */
 
   --navlink-text: white;
-  --navlink-text-hover: steelblue;
-  --navlink-text-border: 1px solid steelblue;
+  --navlink-text-hover: var(--primary-color);
+  --navlink-text-border: 1px solid var(--primary-color);
   --navlink-before: linear-gradient(
     90deg,
     transparent,
-    rgba(58 135 237 / 10%),
+    rgba(30 83 126 / 10%),
     transparent
   );
 
@@ -31,17 +38,33 @@
   /* ---------------------- */
 
   --hero-text-title: white;
-  --hero-call-btn-bg: steelblue;
-  --hero-call-btn-hover: steelblue;
+  --hero-call-btn-bg: linear-gradient(
+    0deg,
+    var(--accent-color) 0%,
+    var(--primary-color) 90%
+  );
+  --hero-call-btn-hover: var(--primary-color);
 
   /* ---------------------- */
   /* Section colors         */
   /* ---------------------- */
 
-  --section-bg: linear-gradient(180deg, #4d5561 0%, #e2e8f0 100%);
-  --section-bg-alt: linear-gradient(180deg, #4d5561 0%, #e2e8f0 100%);
+  --section-bg: linear-gradient(
+    180deg,
+    var(--bg-color) 0%,
+    var(--bg-accent-color) 100%
+  );
+  --section-bg-alt: linear-gradient(
+    180deg,
+    var(--bg-color) 0%,
+    var(--bg-accent-color) 100%
+  );
   --section-text-title: linear-gradient(180deg, white 0%, white 100%);
-  --section-card-border: linear-gradient(90deg, white 0%, steelblue 100%);
+  --section-card-border: linear-gradient(
+    90deg,
+    white 0%,
+    var(--primary-color) 100%
+  );
 
   /* ---------------------- */
   /* Subsection colors      */
@@ -50,36 +73,60 @@
   --subsection-text-title: black;
   --subsection-divider: linear-gradient(
       90deg,
-      steelblue 0%,
+      var(--primary-color) 0%,
       #e5e7eb 50%,
-      steelblue 100%
+      var(--primary-color) 100%
     )
     1;
-  --subsection-text-subtitle: steelblue;
-  --subsection-card-hover: steelblue;
-  --subsection-border-left: steelblue;
-  --subsection-links: steelblue;
-  --subsection-links-hover: steelblue;
-  --subsection-flip-indicator: steelblue;
-  --subsection-image-hover: steelblue;
-  --subsection-tag: linear-gradient(135deg, steelblue 0%, steelblue 100%);
-  --subsection-tag-hover: steelblue;
-  --subsection-cite: steelblue;
+  --subsection-text-subtitle: var(--primary-color);
+  --subsection-card-hover: var(--primary-color);
+  --subsection-border-left: var(--primary-color);
+  --subsection-links: var(--primary-color);
+  --subsection-links-hover: var(--primary-color);
+  --subsection-flip-indicator: var(--primary-color);
+  --subsection-image-hover: var(--primary-color);
+  --subsection-tag: linear-gradient(
+    0deg,
+    var(--accent-color) 0%,
+    var(--primary-color) 90%
+  );
+  --subsection-tag-hover: var(--primary-color);
+  --subsection-cite: var(--primary-color);
 
   /* ---------------------- */
-  /* Footer colors          */
+  /* Scroll Top Button      */
   /* ---------------------- */
 
-  --scroll-top-btn-bg: linear-gradient(135deg, #b8c4d6 0%, steelblue 100%);
+  --scroll-top-btn-bg: linear-gradient(
+    135deg,
+    var(--accent-color) 0%,
+    var(--primary-color) 100%
+  );
   --scroll-top-btn-shadow: 0 4px 12px rgba(186 189 194 / 30%);
-  --scroll-top-btn-hover: linear-gradient(135deg, steelblue 0%, #b8c4d6 100%);
+  --scroll-top-btn-hover: linear-gradient(
+    135deg,
+    var(--primary-color) 0%,
+    var(--accent-color) 100%
+  );
   --scroll-top-btn-hover-shadow: 0 8px 20px rgba(34, 35, 36, 0.4);
   --scroll-top-btn-focus-shadow: 0 8px 20px rgba(255, 255, 255, 0.82);
   --scroll-top-btn-pulse-shadow: 0 8px 20px rgba(255, 255, 255, 0.6);
 
-  --float-call-btn-bg: linear-gradient(135deg, #b8c4d6 0%, steelblue 100%);
+  /* ---------------------- */
+  /* Floating Call Button   */
+  /* ---------------------- */
+
+  --float-call-btn-bg: linear-gradient(
+    135deg,
+    var(--accent-color) 0%,
+    var(--primary-color) 100%
+  );
   --float-call-btn-shadow: 0 4px 12px rgba(186 189 194 / 30%);
-  --float-call-btn-hover: linear-gradient(135deg, steelblue 0%, #b8c4d6 100%);
+  --float-call-btn-hover: linear-gradient(
+    135deg,
+    var(--primary-color) 0%,
+    var(--accent-color) 100%
+  );
   --float-call-btn-hover-shadow: 0 8px 20px rgba(34, 35, 36, 0.4);
   --float-call-btn-focus-shadow: 0 8px 20px rgba(255, 255, 255, 0.82);
   --float-call-btn-pulse-shadow: 0 8px 20px rgba(255, 255, 255, 0.82);
