@@ -4,6 +4,10 @@
     @apply flex flex-col gap-8;
   }
 
+  .contact-image {
+    @apply w-full rounded-lg shadow-lg overflow-hidden;
+  }
+
   /* Map container - full width on all screens */
   .contact-map {
     @apply w-full rounded-lg shadow-lg overflow-hidden;
