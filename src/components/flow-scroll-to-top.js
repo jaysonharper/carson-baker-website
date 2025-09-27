@@ -34,15 +34,14 @@ export class FlowScrollToTop extends LitElement {
       width: 3.5rem;
       height: 3.5rem;
       border-radius: 50%;
-      background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
-      border: 2px solid rgba(124, 58, 237, 0.3);
-      color: #f0f6fc;
+      background: var(--scroll-top-btn-bg);
+      border: none;
+      color: white;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3),
-        0 2px 4px rgba(0, 0, 0, 0.1);
+      box-shadow: var(--scroll-top-btn-shadow);
       transition: all 0.2s ease;
       position: relative;
       overflow: hidden;
@@ -65,11 +64,9 @@ export class FlowScrollToTop extends LitElement {
     }
 
     .scroll-button:hover {
-      background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
-      box-shadow: 0 8px 20px rgba(124, 58, 237, 0.4),
-        0 4px 8px rgba(0, 0, 0, 0.15);
+      background: var(--scroll-top-btn-hover);
+      box-shadow: var(--scroll-top-btn-hover-shadow);
       transform: translateY(-2px) scale(1.05);
-      border-color: rgba(168, 85, 247, 0.5);
     }
 
     .scroll-button:hover::before {
@@ -82,8 +79,7 @@ export class FlowScrollToTop extends LitElement {
 
     .scroll-button:focus {
       outline: none;
-      box-shadow: 0 8px 20px rgba(124, 58, 237, 0.4),
-        0 0 0 3px rgba(124, 58, 237, 0.3);
+      box-shadow: var(--scroll-top-btn-focus-shadow);
     }
 
     .arrow-icon {
@@ -108,7 +104,7 @@ export class FlowScrollToTop extends LitElement {
       }
       50% {
         transform: scale(1.05);
-        box-shadow: 0 8px 20px rgba(124, 58, 237, 0.6);
+        box-shadow: var(--scroll-top-btn-pulse-shadow);
       }
     }
 

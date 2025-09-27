@@ -109,7 +109,7 @@ export class FlowAttorneyCard extends LitElement {
     }
 
     .attorney-email a {
-      color: #2563eb;
+      color: var(--subsection-links);
       font-weight: 500;
       font-size: 0.875rem;
       text-decoration: none;
@@ -117,7 +117,7 @@ export class FlowAttorneyCard extends LitElement {
     }
 
     .attorney-email a:hover {
-      color: #1d4ed8;
+      color: var(--subsection-links-hover);
       text-decoration: underline;
     }
 
@@ -140,11 +140,7 @@ export class FlowAttorneyCard extends LitElement {
       border-radius: 5px;
       font-size: 0.75rem;
       font-weight: 500;
-      background: linear-gradient(
-        135deg,
-        var(--subsection-tag-gradient-start, #2563eb) 0%,
-        var(--subsection-tag-gradient-end, #7c3aed) 100%
-      );
+      background: var(--subsection-tag);
       color: white;
       transition: all 0.2s ease;
       border: 1px solid transparent;
@@ -163,7 +159,6 @@ export class FlowAttorneyCard extends LitElement {
     .specialty-tag:hover {
       transform: translateY(-1px);
       box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3);
-      background: linear-gradient(135deg, #1d4ed8 0%, #6d28d9 100%);
     }
 
     .flip-indicator {

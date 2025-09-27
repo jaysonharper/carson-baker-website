@@ -72,11 +72,11 @@ this._intersectionObserver = new IntersectionObserver((entries) => {
   transform: translateY(-1px);
 }
 
-.company-name:hover .company-line-1 {
+.company-name:hover .logo-line-1 {
   color: #f0f6fc; /* Brighter on hover */
 }
 
-.company-name:hover .company-line-2 {
+.company-name:hover .logo-text {
   text-shadow: 0 0 40px rgba(124, 58, 237, 0.5); /* Enhanced glow */
 }
 ```

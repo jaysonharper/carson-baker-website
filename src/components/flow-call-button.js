@@ -2,7 +2,7 @@ import { LitElement, html, css } from "lit";
 
 /**
  * A professional call button component for Law Offices
- * Features GitHub-inspired dark theme with phone icon and animations
+ * with phone icon and animations
  */
 export class FlowCallButton extends LitElement {
   static styles = css`
@@ -13,10 +13,10 @@ export class FlowCallButton extends LitElement {
     .call-button {
       display: flex;
       align-items: center;
-      background: linear-gradient(135deg, #238636 0%, #2ea043 100%);
+      background: steelblue;
       color: #f0f6fc;
       padding: 0.5rem 1rem;
-      border-radius: 0.5rem;
+      border-radius: 5px;
       text-decoration: none;
       font-weight: 600;
       font-size: 0.875rem;
@@ -29,7 +29,6 @@ export class FlowCallButton extends LitElement {
 
     .call-button:hover {
       background: linear-gradient(135deg, #2ea043 0%, #46954a 100%);
-      transform: translateY(-1px);
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
       color: #f0f6fc;
     }
@@ -145,16 +144,16 @@ export class FlowCallButton extends LitElement {
     }
 
     :host([variant="hero"]) .call-button {
-      background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
-      border-color: #2563eb;
-      font-size: 1rem;
+      background: var(--hero-call-btn-bg);
+      border-color: #000000b8;
+      font-size: 2rem;
       padding: 0.75rem 1.5rem;
-      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+      box-shadow: 0 4px 12px rgb(0 0 0);
+      margin-top: 30px;
     }
 
     :host([variant="hero"]) .call-button:hover {
-      background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
-      box-shadow: 0 8px 20px rgba(124, 58, 237, 0.4);
+      border: 2px, solid, white;
     }
 
     :host([variant="hero"]) .phone-icon {
@@ -206,7 +205,7 @@ export class FlowCallButton extends LitElement {
       }
 
       :host([variant="hero"]) .call-button {
-        font-size: 0.925rem;
+        font-size: 1.5rem;
         padding: 0.625rem 1.25rem;
       }
 

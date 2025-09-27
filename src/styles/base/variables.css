@@ -1,136 +1,133 @@
 /* Theme color palette */
 :root {
-  /* SAMPLE PALETTE */
-  /* --maya-blue: #67c7ffff;
-  --light-sky-blue: #80d0ffff;
-  --pale-azure: #9adaffff;
-  --uranian-blue: #b3e3ffff;
-  --columbia-blue: #cdecffff;
-  --alice-blue: #e6f6ffff; */
+  /* Base Palette */
 
-  /* ******************************************** */
-  /*    =========== ORIGINAL COLORS ===========   */
-  /* ******************************************** */
-  /* nav */
-  /* [none] */
-  /* hero */
-  --orig-hero-bg-gradient-start: #0d1117;
-  --orig-hero-bg-gradient-end: #161b22;
-  --orig-hero-text-title-gradient-start: #f0f6fc;
-  --orig-hero-text-title-gradient-middle: #7c3aed;
-  --orig-hero-text-title-gradient-end: #2563eb;
-  --orig-hero-text-subtitle: #8b949e;
-  /* section */
-  --orig-section-text-title-gradient-start: #0d1117;
-  --orig-section-text-title-gradient-end: #7c3aed;
-  --orig-section-card-border-gradient-start: #2563eb;
-  --orig-section-card-border-gradient-end: #7c3aed;
-  /* subsection */
-  --orig-subsection-text-title: #0d1117;
-  --orig-subsection-border-left: #2563eb;
-  --orig-subsection-text-subtitle: #2563eb;
-  /* --orig-subsection-text-content: #8b949e;
-  --orig-subsection-border: #e5e7eb;
-  --orig-subsection-divider: #f0f6fc;
-  --orig-subsection-checkmark: #2563eb;
-  --orig-subsection-image: #f8fafc; */
-  --orig-subsection-card-hover: #2563eb;
-  --orig-subsection-image-hover: #2563eb;
-  --orig-subsection-tag-gradient-start: #2563eb;
-  --orig-subsection-tag-gradient-end: #7c3aed;
-  --orig-subsection-flip-indicator: #2563eb;
-  --orig-subsection-cite: #7c3aed;
-  /* footer */
-  /* [none] */
+  --primary-color: steelblue;
+  --accent-color: #1e537e;
+  --bg-color: #4d5561;
+  --bg-accent-color: #e2e8f0;
 
-  /* ******************************************** */
-  /*    =========== NEW COLORS ===========        */
-  /* ******************************************** */
+  /* ---------------------- */
+  /* Navbar colors          */
+  /* ---------------------- */
 
-  /* Navbar colors */
-
-  /* --nav-bg-gradient-start: var(--uranian-blue);
-  --nav-bg-gradient-end: var(--light-sky-blue);
-  --nav-text-line1: var(--alice-blue);
-  --nav-text-line2-gradient-start: var(--main-text-primary);
-  --nav-text-line2-gradient-end: var(--main-text-secondary);
-  --nav-text-hover: var(--light-sky-blue); */
-
-  /* Nav Link colors */
-
-  /* --navlink-text: var(--alice-blue);
-  --navlink-text-hover: var(--alice-blue);
-  --navlink-hover: var(--alice-blue); */
-
-  /* Hero colors */
-
-  --hero-bg-gradient-start: var(--orig-hero-bg-gradient-start);
-  --hero-bg-gradient-end: var(--orig-hero-bg-gradient-end);
-  --hero-text-title-gradient-start: var(--orig-hero-text-title-gradient-start);
-  --hero-text-title-gradient-middle: var(
-    --orig-hero-text-title-gradient-middle
+  --nav-bg: linear-gradient(
+    0deg,
+    var(--accent-color) 0%,
+    var(--primary-color) 90%
   );
-  --hero-text-title-gradient-end: var(--orig-hero-text-title-gradient-end);
-  --hero-text-subtitle: var(--orig-hero-text-subtitle);
-  /* --hero-text-summary: var(--alice-blue);
-  --hero-btn-gradient-start: var(--main-accent-primary);
-  --hero-btn-gradient-end: var(--main-accent-secondary);
-  --hero-btn-hover-gradient-start: var(--main-accent-hover);
-  --hero-btn-hover-gradient-end: var(--main-accent-hover); */
+  --nav-logo-text: white;
+  --nav-logo-text-hover: white;
 
-  /* Section colors */
+  /* ---------------------- */
+  /* Nav Link colors        */
+  /* ---------------------- */
 
-  /* --section-bg-gradient-start: var(--light-sky-blue);
-  --section-bg-gradient-end: var(--pale-azure); */
-  --section-text-title-gradient-start: var(
-    --orig-section-text-title-gradient-start
-  );
-  --section-text-title-gradient-end: var(
-    --orig-section-text-title-gradient-end
-  );
-  /* --section-card-bg-gradient-start: var(--light-sky-blue);
-  --section-card-bg-gradient-end: var(--pale-azure);
-  --section-card-shadow: var(--hero-bg-gradient-end); */
-  --section-card-border-gradient-start: var(
-    --orig-section-card-border-gradient-start
-  );
-  --section-card-border-gradient-end: var(
-    --orig-section-card-border-gradient-end
+  --navlink-text: white;
+  --navlink-text-hover: var(--primary-color);
+  --navlink-text-border: 1px solid var(--primary-color);
+  --navlink-before: linear-gradient(
+    90deg,
+    transparent,
+    rgba(30 83 126 / 10%),
+    transparent
   );
 
-  /* Subsection colors */
+  /* ---------------------- */
+  /* Hero colors            */
+  /* ---------------------- */
 
-  /* --subsection-text-summary: var(--alice-blue);
-  --subsection-card-bg-gradient-start: var(--light-sky-blue);
-  --subsection-card-bg-gradient-end: var(--pale-azure); */
-  --subsection-text-title: var(--orig-subsection-text-title);
-  /* --subsection-text-content: var(--alice-blue);
-  --subsection-divider-gradient-start: var(--hero-bg-gradient-end);
-  --subsection-divider-gradient-end: var(--hero-bg-gradient-end);
-  --subsection-checkmark: var(--main-accent-primary);  */
-  --subsection-text-subtitle: var(--orig-subsection-text-subtitle);
-  --subsection-card-hover: var(--orig-subsection-card-hover);
-  --subsection-border-left: var(--orig-subsection-border-left);
-  /*
-  --subsection-btn-gradient-start: var(--main-accent-primary);
-  --subsection-btn-gradient-end: var(--main-accent-secondary);
-  --subsection-btn-hover-gradient-start: var(--main-accent-hover);
-  --subsection-btn-hover-gradient-end: var(--main-accent-hover);
-  --subsection-links: var(--main-accent-primary);
-  --subsection-links-hover: var(--main-accent-hover); */
-  --subsection-flip-indicator: var(--orig-subsection-flip-indicator);
-  --subsection-image-hover: var(--orig-subsection-image-hover);
-  --subsection-tag-gradient-start: var(--orig-subsection-tag-gradient-start);
-  --subsection-tag-gradient-end: var(--orig-subsection-tag-gradient-end);
-  --subsection-cite: var(--orig-subsection-cite);
+  --hero-text-title: white;
+  --hero-call-btn-bg: linear-gradient(
+    0deg,
+    var(--accent-color) 0%,
+    var(--primary-color) 90%
+  );
+  --hero-call-btn-hover: var(--primary-color);
 
-  /* Footer colors */
+  /* ---------------------- */
+  /* Section colors         */
+  /* ---------------------- */
 
-  /* --footer-bg-gradient-start: var(--light-sky-blue);
-  --footer-bg-gradient-end: var(--pale-azure);
-  --footer-text-title: var(--main-text-primary);
-  --footer-text-subtitle: var(--main-text-secondary);
-  --footer-text-copyright: var(--alice-blue);
-  --footer-links: var(--main-accent-primary);
-  --footer-links-hover: var(--main-accent-hover); */
+  --section-bg: linear-gradient(
+    180deg,
+    var(--bg-color) 0%,
+    var(--bg-accent-color) 100%
+  );
+  --section-bg-alt: linear-gradient(
+    180deg,
+    var(--bg-color) 0%,
+    var(--bg-accent-color) 100%
+  );
+  --section-text-title: linear-gradient(180deg, white 0%, white 100%);
+  --section-card-border: linear-gradient(
+    90deg,
+    white 0%,
+    var(--primary-color) 100%
+  );
+
+  /* ---------------------- */
+  /* Subsection colors      */
+  /* ---------------------- */
+
+  --subsection-text-title: black;
+  --subsection-divider: linear-gradient(
+      90deg,
+      var(--primary-color) 0%,
+      #e5e7eb 50%,
+      var(--primary-color) 100%
+    )
+    1;
+  --subsection-text-subtitle: var(--primary-color);
+  --subsection-card-hover: var(--primary-color);
+  --subsection-border-left: var(--primary-color);
+  --subsection-links: var(--primary-color);
+  --subsection-links-hover: var(--primary-color);
+  --subsection-flip-indicator: var(--primary-color);
+  --subsection-image-hover: var(--primary-color);
+  --subsection-tag: linear-gradient(
+    0deg,
+    var(--accent-color) 0%,
+    var(--primary-color) 90%
+  );
+  --subsection-tag-hover: var(--primary-color);
+  --subsection-cite: var(--primary-color);
+
+  /* ---------------------- */
+  /* Scroll Top Button      */
+  /* ---------------------- */
+
+  --scroll-top-btn-bg: linear-gradient(
+    135deg,
+    var(--accent-color) 0%,
+    var(--primary-color) 100%
+  );
+  --scroll-top-btn-shadow: 0 4px 12px rgba(186 189 194 / 30%);
+  --scroll-top-btn-hover: linear-gradient(
+    135deg,
+    var(--primary-color) 0%,
+    var(--accent-color) 100%
+  );
+  --scroll-top-btn-hover-shadow: 0 8px 20px rgba(34, 35, 36, 0.4);
+  --scroll-top-btn-focus-shadow: 0 8px 20px rgba(255, 255, 255, 0.82);
+  --scroll-top-btn-pulse-shadow: 0 8px 20px rgba(255, 255, 255, 0.6);
+
+  /* ---------------------- */
+  /* Floating Call Button   */
+  /* ---------------------- */
+
+  --float-call-btn-bg: linear-gradient(
+    135deg,
+    var(--accent-color) 0%,
+    var(--primary-color) 100%
+  );
+  --float-call-btn-shadow: 0 4px 12px rgba(186 189 194 / 30%);
+  --float-call-btn-hover: linear-gradient(
+    135deg,
+    var(--primary-color) 0%,
+    var(--accent-color) 100%
+  );
+  --float-call-btn-hover-shadow: 0 8px 20px rgba(34, 35, 36, 0.4);
+  --float-call-btn-focus-shadow: 0 8px 20px rgba(255, 255, 255, 0.82);
+  --float-call-btn-pulse-shadow: 0 8px 20px rgba(255, 255, 255, 0.82);
 }

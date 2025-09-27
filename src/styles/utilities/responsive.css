@@ -4,10 +4,6 @@
     @apply text-4xl;
   }
 
-  .hero-subtitle {
-    @apply text-lg;
-  }
-
   .section-title {
     @apply text-3xl;
   }

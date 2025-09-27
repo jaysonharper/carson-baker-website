@@ -13,9 +13,13 @@ export class FlowNavbar extends LitElement {
       left: 0;
       right: 0;
       z-index: 1000;
-      background: linear-gradient(135deg, #0d1117 0%, #161b22 100%);
+      background: var(--nav-bg);
       border-bottom: 1px solid #30363d;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      /* Ensure Poppins is used inside Shadow DOM when available */
+      font-family: "Poppins", ui-sans-serif, system-ui, -apple-system,
+        BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+        "Noto Sans", sans-serif;
     }
 
     .navbar {
@@ -64,54 +68,42 @@ export class FlowNavbar extends LitElement {
       transform: rotate(-45deg) translate(7px, -6px);
     }
 
-    /* Company Name */
-    .company-name {
-      text-align: center;
-      flex-grow: 1;
-      margin: 0 1rem;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      padding: 0.5rem;
-      border-radius: 0.375rem;
+    /* Logo Container */
+    .logo-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* Centers the text horizontally */
+      text-align: center; /* fallback for older browsers */
+      font-family: inherit;
+      color: #333; /* A dark, professional gray */
     }
 
-    .company-name:hover {
-      background-color: rgba(124, 58, 237, 0.1);
+    .logo-container:hover {
       transform: translateY(-1px);
+      cursor: pointer;
+      transition: transform 0.2s ease;
     }
 
-    .company-line-1 {
-      font-size: 1.125rem;
-      font-weight: 300;
-      color: #8b949e;
-      letter-spacing: 0.025em;
-      margin-bottom: -2px;
-      transition: color 0.2s ease;
-    }
-
-    .company-name:hover .company-line-1 {
-      color: #f0f6fc;
-    }
-
-    .company-line-2 {
-      font-size: 1.375rem;
-      font-weight: 700;
-      background: linear-gradient(
-        135deg,
-        #f0f6fc 0%,
-        #7c3aed 50%,
-        #2563eb 100%
-      );
+    .logo-text {
+      font-size: 1.75em;
+      background: var(--hero-text-title);
       background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      letter-spacing: 0.05em;
-      text-shadow: 0 0 30px rgba(124, 58, 237, 0.3);
-      transition: all 0.2s ease;
+      filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.3))
+        drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2))
+        drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
     }
 
-    .company-name:hover .company-line-2 {
-      text-shadow: 0 0 40px rgba(124, 58, 237, 0.5);
+    .logo-container:hover .logo-text {
+      text-shadow: 0 0 40px var(--nav-logo-text-hover);
+    }
+
+    /* Justice Icon Container for Tooltip */
+    .justice-icon-container {
+      position: relative;
+      display: inline-block;
+      margin-left: 0.5rem;
     }
 
     /* Static Scales of Justice Icon */
@@ -119,18 +111,49 @@ export class FlowNavbar extends LitElement {
       /* Mobile: smaller */
       width: 48px;
       height: 48px;
-      margin-left: 0.5rem;
       flex-shrink: 0;
-      display: inline-block;
-      vertical-align: middle;
+      display: block;
+      color: #fff;
+      cursor: pointer;
     }
 
-    @media (min-width: 768px) {
-      .justice-icon {
-        /* Tablet: medium */
-        width: 72px;
-        height: 72px;
-      }
+    /* Tooltip element */
+    .tooltip {
+      position: absolute;
+      bottom: -35px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0, 0, 0, 0.9);
+      color: white;
+      padding: 6px 10px;
+      border-radius: 4px;
+      font-size: 12px;
+      white-space: nowrap;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+      pointer-events: none;
+      z-index: 1001;
+    }
+
+    /* Tooltip arrow */
+    .tooltip::before {
+      content: "";
+      position: absolute;
+      top: -5px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-bottom: 5px solid rgba(0, 0, 0, 0.9);
+    }
+
+    /* Show tooltip on hover */
+    .justice-icon-container:hover .tooltip {
+      opacity: 1;
+      visibility: visible;
     }
 
     /* Navigation Menu */
@@ -165,8 +188,8 @@ export class FlowNavbar extends LitElement {
       width: 100%;
       text-align: center;
       padding: 0.75rem 1rem;
-      border: 1px solid #30363d;
-      color: #f0f6fc;
+      border: var(--navlink-text-border);
+      color: var(--navlink-text);
       text-decoration: none;
       font-weight: 600;
       font-size: 0.925rem;
@@ -184,17 +207,12 @@ export class FlowNavbar extends LitElement {
       left: -100%;
       width: 100%;
       height: 100%;
-      background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(124, 58, 237, 0.1),
-        transparent
-      );
+      background: var(--navlink-before);
       transition: left 0.5s ease;
     }
 
     .nav-link:hover {
-      color: #7c3aed;
+      color: var(--navlink-text-hover);
       background-color: #21262d;
       transform: translateY(-1px);
     }
@@ -215,12 +233,14 @@ export class FlowNavbar extends LitElement {
         height: 2.2px;
       }
 
-      .company-line-1 {
-        font-size: 1.25rem;
+      .logo-text {
+        font-size: 2rem;
       }
 
-      .company-line-2 {
-        font-size: 1.5rem;
+      .justice-icon {
+        /* Tablet: medium */
+        width: 72px;
+        height: 72px;
       }
     }
 
@@ -239,12 +259,8 @@ export class FlowNavbar extends LitElement {
         height: 2.5px;
       }
 
-      .company-line-1 {
-        font-size: 1.375rem;
-      }
-
-      .company-line-2 {
-        font-size: 1.75rem;
+      .logo-text {
+        font-size: 2.5rem;
       }
     }
   `;
@@ -273,53 +289,75 @@ export class FlowNavbar extends LitElement {
 
         <!-- Company Name -->
         <div
-          class="company-name"
+          class="logo-container"
           @click="${this._scrollToTop}"
           role="button"
           tabindex="0"
+          aria-label="Law Offices of Carson & Baker - Home"
           @keydown="${this._handleCompanyNameKeydown}"
         >
-          <div class="company-line-1">Law Offices of</div>
-          <div class="company-line-2">Carson & Baker</div>
+          <span class="logo-text">Carson & Baker</span>
         </div>
 
-        <!-- Scales of Justice Icon (static, bright white) -->
-        <svg
-          class="justice-icon"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-          role="img"
-          aria-label="Scales of Justice"
-        >
-          <!-- Beam -->
-          <rect x="5" y="7" width="14" height="2" rx="1" fill="#ffffff" />
-          <!-- Center pole -->
-          <rect x="11" y="5" width="2" height="12" rx="1" fill="#ffffff" />
-          <!-- Base -->
-          <rect x="8" y="17" width="8" height="2" rx="1" fill="#ffffff" />
-          <!-- Hub detail -->
-          <circle cx="12" cy="8" r="1" fill="#ffffff" />
-          <!-- Chains -->
-          <line
-            x1="7"
-            y1="9"
-            x2="7"
-            y2="13"
-            stroke="#ffffff"
-            stroke-width="1.5"
-          />
-          <line
-            x1="17"
-            y1="9"
-            x2="17"
-            y2="13"
-            stroke="#ffffff"
-            stroke-width="1.5"
-          />
-          <!-- Pans -->
-          <ellipse cx="7" cy="15" rx="3" ry="1.2" fill="#ffffff" />
-          <ellipse cx="17" cy="15" rx="3" ry="1.2" fill="#ffffff" />
-        </svg>
+        <!-- Scales of Justice Icon with tooltip container -->
+        <div class="justice-icon-container">
+          <svg
+            class="justice-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 120 120"
+            fill="currentColor"
+            role="img"
+            aria-label="Justice Scales"
+          >
+            <!-- Base pedestal -->
+            <rect x="54" y="95" width="12" height="20" rx="2" />
+            <rect x="40" y="112" width="40" height="6" rx="3" />
+
+            <!-- Main vertical post -->
+            <rect x="58" y="25" width="4" height="70" rx="1" />
+
+            <!-- Top horizontal beam -->
+            <rect x="25" y="26" width="70" height="4" rx="2" />
+
+            <!-- Left chain -->
+            <g stroke="currentColor" stroke-width="1.5" fill="none">
+              <line x1="35" y1="30" x2="35" y2="48" />
+              <line x1="37" y1="30" x2="37" y2="48" />
+            </g>
+
+            <!-- Right chain -->
+            <g stroke="currentColor" stroke-width="1.5" fill="none">
+              <line x1="83" y1="30" x2="83" y2="48" />
+              <line x1="85" y1="30" x2="85" y2="48" />
+            </g>
+
+            <!-- Left scale pan (balanced position) -->
+            <ellipse cx="36" cy="55" rx="16" ry="3" fill="currentColor" />
+            <path
+              d="M20 55 Q20 59 24 61 L48 61 Q52 59 52 55"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            />
+
+            <!-- Right scale pan (balanced position) -->
+            <ellipse cx="84" cy="55" rx="16" ry="3" fill="currentColor" />
+            <path
+              d="M68 55 Q68 59 72 61 L96 61 Q100 59 100 55"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            />
+
+            <!-- Scale pan connection points -->
+            <circle cx="36" cy="48" r="2" fill="currentColor" />
+            <circle cx="84" cy="48" r="2" fill="currentColor" />
+
+            <!-- Decorative balance indicator on top -->
+            <circle cx="60" cy="24" r="3" fill="currentColor" opacity="0.8" />
+          </svg>
+          <div class="tooltip">Justice Scales</div>
+        </div>
 
         <!-- Navigation Menu -->
         <div class="nav-menu ${this.mobileMenuOpen ? "active" : ""}">
