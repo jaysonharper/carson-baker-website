@@ -210,7 +210,7 @@ If you need a template for distribution, you can recreate one manually (e.g. `cp
 │ │ └── utilities/ # Responsive and scroll utilities
 │ └── app.main.js # Application entry point
 ├── index.html # Main HTML file
-└── vite.config.js # Vite configuration
+└── vite.config.mjs # Vite configuration
 
 ## 🎨 Design System
 
@@ -221,9 +221,10 @@ Components follow [Flowbite](https://flowbite.com/) design patterns and use Tail
 - **Responsive** design
 - **Dark mode** support
 - **Professional** appearance
+
 ```bash
 npm run test
-````
+```
 
 Test files should be placed alongside components with `.test.js` suffix.
 
@@ -245,7 +246,7 @@ How it works:
 
 User steps after creating a repo from the template: 3. Visit: `https://<your-username>.github.io/<your-repo-name>/` (or root if a `*.github.io` repo).
 
-No need to edit `vite.config.js`, scripts, or HTML paths.
+No need to edit `vite.config.mjs`, scripts, or HTML paths.
 
 ### Local Production Build
 

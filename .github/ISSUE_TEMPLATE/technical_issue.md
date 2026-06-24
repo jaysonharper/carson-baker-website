@@ -66,7 +66,7 @@ Include relevant build output if applicable
 - [ ] `src/components/flow-alert.js`
 - [ ] `index.html`
 - [ ] `package.json`
-- [ ] `vite.config.js`
+- [ ] `vite.config.mjs`
 - [ ] `.github/workflows/deploy.yml`
 - [ ] Storybook files
 - [ ] Test files

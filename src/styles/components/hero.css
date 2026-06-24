@@ -2,7 +2,7 @@
   /* Hero Section */
   .hero-section {
     @apply min-h-screen flex items-center justify-center;
-    background-image: url("/public/images/dark-office.jpeg");
+    background-image: url("/images/dark-office.jpeg");
     background-size: cover; /* Ensures the image covers the section */
     background-position: center; /* Centers the image */
     background-repeat: no-repeat;
