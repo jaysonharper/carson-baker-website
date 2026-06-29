@@ -7,14 +7,7 @@ const globals = require("globals");
 module.exports = [
   // Ignore build artifacts and external folders
   {
-    ignores: [
-      "node_modules/",
-      "dist/",
-      "public/",
-      "storybook-static/",
-      "coverage/",
-      "**/.vite/",
-    ],
+    ignores: ["node_modules/", "dist/", "public/", "coverage/", "**/.vite/"],
   },
 
   // Base recommended rules
