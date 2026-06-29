@@ -145,7 +145,6 @@ this.dispatchEvent(new CustomEvent('flow-scroll-top-click', {
 Both features are now active on the website:
 
 - **Main Website** (http://localhost:5173):
-
   - **Click company name** in navbar to scroll to top
   - **Scroll down** past hero section to see scroll-to-top button appear
   - **Click scroll button** to smoothly return to top
