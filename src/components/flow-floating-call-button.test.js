@@ -120,6 +120,11 @@ describe("FlowFloatingCallButton", () => {
     });
 
     const link = component.shadowRoot.querySelector(".call-button");
+    // Prevent jsdom from attempting to navigate the tel: href
+    link.addEventListener("click", (e) => e.preventDefault(), {
+      once: true,
+      capture: true,
+    });
     link.click();
 
     expect(eventFired).toBe(true);

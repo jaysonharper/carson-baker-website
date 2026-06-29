@@ -1,31 +1,41 @@
-import { describe, it, expect } from "vitest";
-import { trackEvent } from "./main";
+/**
+ * @vitest-environment jsdom
+ */
+import { describe, it, expect, vi } from "vitest";
+
+// Hoist IntersectionObserver stub so it exists before app.main.js module code runs
+vi.hoisted(() => {
+  globalThis.IntersectionObserver = class {
+    observe() {}
+    disconnect() {}
+    unobserve() {}
+  };
+});
+
+// Prevent CSS and component side-effect imports from breaking the test environment
+vi.mock("./styles/main.css", () => ({}));
+vi.mock("./components/index.js", () => ({}));
+
+import { trackEvent } from "./app.main.js";
 
 describe("Law Office Main App", () => {
   describe("trackEvent function", () => {
     it("should track events with correct data", () => {
-      // Mock console.log to verify tracking
-      const originalConsoleLog = console.log;
-      const logMessages = [];
-      console.log = (...args) => logMessages.push(args);
+      const consoleSpy = vi.spyOn(console, "log").mockImplementation(() => {});
 
       trackEvent("phone_call_attempted", { phone_number: "+15032889291" });
 
-      expect(logMessages).toContainEqual([
+      expect(consoleSpy).toHaveBeenCalledWith(
         "Event tracked:",
         "phone_call_attempted",
         { phone_number: "+15032889291" },
-      ]);
+      );
 
-      // Restore console.log
-      console.log = originalConsoleLog;
+      consoleSpy.mockRestore();
     });
 
     it("should track call button events with enhanced data", () => {
-      // Mock console.log to verify tracking
-      const originalConsoleLog = console.log;
-      const logMessages = [];
-      console.log = (...args) => logMessages.push(args);
+      const consoleSpy = vi.spyOn(console, "log").mockImplementation(() => {});
 
       trackEvent("phone_call_attempted", {
         phone_number: "+15032889291",
@@ -34,7 +44,7 @@ describe("Law Office Main App", () => {
         button_variant: "hero",
       });
 
-      expect(logMessages).toContainEqual([
+      expect(consoleSpy).toHaveBeenCalledWith(
         "Event tracked:",
         "phone_call_attempted",
         {
@@ -43,10 +53,23 @@ describe("Law Office Main App", () => {
           button_size: "xl",
           button_variant: "hero",
         },
-      ]);
+      );
 
-      // Restore console.log
-      console.log = originalConsoleLog;
+      consoleSpy.mockRestore();
+    });
+
+    it("should handle events with no data object", () => {
+      const consoleSpy = vi.spyOn(console, "log").mockImplementation(() => {});
+
+      trackEvent("page_view", undefined);
+
+      expect(consoleSpy).toHaveBeenCalledWith(
+        "Event tracked:",
+        "page_view",
+        undefined,
+      );
+
+      consoleSpy.mockRestore();
     });
   });
 });
