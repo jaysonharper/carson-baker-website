@@ -1,18 +1,17 @@
 # Static Web Starter Template
 
-> A modern, lightweight static web starter template featuring Lit web components, Tailwind CSS, and Storybook. Built with Vite for fast development and designed with a mobile-first approach for rapid prototyping and learning.
+> A modern, lightweight static web starter template featuring Lit web components, Tailwind CSS, and Vitest. Built with Vite for fast development and designed with a mobile-first approach for rapid prototyping and learning.
 
 ## ✨ Features
 
 - 🚀 **Fast Development** - Vite build tool with HMR
 - 🎨 **Modern UI Components** - Lit web components with Flowbite design patterns
 - 💨 **Tailwind CSS** - Utility-first CSS framework
-- 📚 **Storybook** - Component development and documentation
-- 🧪 **Testing** - Vitest for unit testing
+- 🧪 **Testing** - Vitest (node/jsdom) + Playwright browser tests
 - 📱 **Mobile-First** - Responsive design approach
 - ⚡ **Single Page App** - Client-side navigation with smooth transitions
-- 🔧 **Developer Experience** - ESLint, Prettier, PostCSS
-- ♿ **Accessibility** - Built-in a11y testing with Storybook
+- 🔧 **Developer Experience** - ESLint, PostCSS
+- ♿ **Accessibility** - Semantic HTML, ARIA labels, keyboard navigation
 
 ## 🏗️ Tech Stack
 
@@ -26,9 +25,8 @@
 ### Development Tools
 
 - **Vite** - Build tool and dev server
-- **Storybook** - Component development environment
-- **Vitest** - Testing framework
-- **Prettier** - Code formatting
+- **Vitest** - Testing framework (node + browser via Playwright)
+- **Playwright** - Headless Chromium for browser integration tests
 - **ESLint** - JavaScript linting
 - **PostCSS** - CSS processing
 
@@ -41,12 +39,13 @@
 
 ### Prerequisites
 
-- Node.js 20+ (required for Storybook)
+- Node.js 20+
 - npm or yarn
+- For browser tests (optional): run `npx playwright install chromium` once after `npm install`
 
 ### Installation & Development
 
-````bash
+```bash
 # Clone the repository
 git clone https://github.com/jaysonharper/static-web-starter-template.git
 cd static-web-starter-template
@@ -54,18 +53,15 @@ cd static-web-starter-template
 # Install dependencies
 npm install
 
+# (Optional) Install Playwright Chromium for browser tests
+npx playwright install chromium
+
 # Start development server
+npm run dev
+```
 
 Visit `http://localhost:5173` to see your application.
 
-### Component Development
-
-```bash
-# Start Storybook for component development
-npm run storybook
-````
-
-Visit `http://localhost:6006` to access the component library.
 
 ## ⚙️ Environment Variables
 
@@ -98,119 +94,132 @@ If you need a template for distribution, you can recreate one manually (e.g. `cp
 
 ## 📜 Available Scripts
 
-### Development
+- `npm run dev` - Start development server (http://localhost:5173)
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build locally
+- `npm run test` - Run all tests (node/jsdom + Playwright browser)
+- `npm run lint` - Run ESLint
 
-- `npm run dev` - Start Vite dev server
-- `npm run dev:clean` - Clean cache and start dev server
+> **Note:** `npm run test` includes browser tests requiring Playwright Chromium. Run `npx playwright install chromium` once after `npm install` to enable them. To run only node/jsdom tests: `npx vitest run --project node`
 
-### Building
+## 🧩 Available Components
 
-- `npm run preview` - Preview production build
-
-### Testing
-### Storybook
-
-- `npm run storybook` - Start Storybook dev server
-
-### Maintenance
-
-- `npm run clean:all` - Clear all build artifacts
-- `npm run fresh-install` - Clean reinstall dependencies
-
-### Available Components
-
-#### Flow Button (`<flow-button>`)
+### Flow Button (`<flow-button>`)
 
 ```html
 <flow-button variant="primary" size="md">Click me</flow-button>
 <flow-button variant="success" loading>Processing...</flow-button>
-````
+```
 
-**Properties:**
+**Properties:** `variant` (primary/secondary/success/danger/warning/info), `size` (xs/sm/md/lg/xl), `disabled`, `loading`  
+**Events:** `flow-click`
 
-- `variant`: primary, secondary, success, danger, warning, info
-- `size`: xs, sm, md, lg, xl
-- `disabled`: boolean
-- `loading`: boolean
+---
 
+### Flow Alert (`<flow-alert>`)
+
+```html
+<flow-alert type="success" dismissible>
   <strong>Success!</strong> Operation completed.
-  </flow-alert>
-
+</flow-alert>
 ```
 
-**Properties:**
+**Properties:** `type` (info/success/warning/danger), `dismissible`, `icon`, `visible`  
+**Events:** `flow-alert-closed`
 
-- `type`: info, success, warning, danger
-- `dismissible`: boolean
-- `icon`: boolean
+---
 
-#### Flow Floating Call Button (`<flow-floating-call-button>`)
-  phone-number="+15032889291"
-></flow-floating-call-button>
+### Flow Call Button (`<flow-call-button>`)
+
+```html
+<flow-call-button phone-number="+15032889291" variant="navbar" size="md"></flow-call-button>
 ```
 
-**Properties:**
+**Properties:** `phone-number`, `variant` (primary/secondary/hero/navbar), `size` (sm/md/lg/xl), `disabled`, `full-width`  
+**Events:** `flow-call-click`
 
-- `phone-number`: string (tel: format)
-- `visible`: boolean (auto-managed)
-- `pinned`: boolean (auto-managed)
+---
 
-**Features:**
+### Flow Floating Call Button (`<flow-floating-call-button>`)
 
-- Intersection Observer-based visibility control
-
-#### Flow Scroll to Top (`<flow-scroll-to-top>`)
-
+```html
+<flow-floating-call-button phone-number="+15032889291"></flow-floating-call-button>
 ```
 
-**Properties:**
+**Properties:** `phone-number`, `visible` (auto-managed), `pinned` (auto-managed — pins above footer)  
+**Events:** `flow-floating-call-click`
 
-- `visible`: boolean (auto-managed)
-- `pinned`: boolean (auto-managed)
+---
 
-**Features:**
+### Flow Scroll to Top (`<flow-scroll-to-top>`)
 
-- Smart positioning above footer when footer is visible
+```html
+<flow-scroll-to-top></flow-scroll-to-top>
+```
 
-#### Responsive Footer
-**Desktop/Tablet Features:**
+**Properties:** `visible` (auto-managed), `pinned` (auto-managed — pins above footer)  
+**Events:** `flow-scroll-top-click`
 
-- Business name and tagline
-- Navigation links to main sections
-- Complete copyright notice
-- Dark gradient theme matching navbar
+---
 
-- Optimized typography and spacing
+### Flow Navbar (`<flow-navbar>`)
 
-**Smart Integration:**
-- Smooth transitions between positioning states
+```html
+<flow-navbar></flow-navbar>
+```
 
-### Creating New Components
-3. Create stories in `src/components/[component].stories.js`
-4. Document in Storybook
+Fixed top navigation with hamburger menu, company logo (click to scroll to top), Scales of Justice icon with tooltip, and section navigation links.
+
+---
+
+### Flow Attorney Card (`<flow-attorney-card>`)
+
+```html
+<flow-attorney-card name="Attorney Name" email="attorney@example.com" image="photo.jpg"></flow-attorney-card>
+```
+
+**Properties:** `name`, `email`, `image`, `image-alt`, `image-class`, `specialties` (array), `education` (array), `memberships` (array), `admissions` (array), `biography`  
+**Events:** `card-flip`, `specialty-click`
+
+## 🏗️ Creating New Components
+
+1. Create `src/components/flow-[name].js` extending `LitElement`
+2. Register and export in `src/components/index.js`
+3. Write co-located tests: `src/components/flow-[name].test.js`
+4. Document in `/docs`
 
 ## 📁 Project Structure
 
 ```
-
-├── .storybook/ # Storybook configuration
-├── docs/ # Component documentation
-├── scripts/ # Build and dev scripts
+├── docs/                  # Component and feature documentation
+├── public/                # Static assets served as-is
 ├── src/
-│ ├── components/ # Lit web components
-│ │ ├── flow-button.js
-│ │ ├── flow-alert.js
-│ │ └── \*.stories.js # Storybook stories
-│ ├── stories/ # Default Storybook examples
-│ ├── styles/ # Modular CSS architecture
-│ │ ├── main.css # Main stylesheet entry point
-│ │ ├── base/ # Reset, variables, typography
-│ │ ├── components/ # Component-specific styles
-│ │ ├── layout/ # Layout and animations
-│ │ └── utilities/ # Responsive and scroll utilities
-│ └── app.main.js # Application entry point
-├── index.html # Main HTML file
-└── vite.config.mjs # Vite configuration
+│   ├── app.main.js        # Application entry point
+│   ├── main.test.js       # App-level unit tests
+│   ├── main.dom.test.js   # DOM interaction tests (browser)
+│   ├── components/        # Lit web components + co-located tests
+│   │   ├── flow-alert.js
+│   │   ├── flow-attorney-card.js
+│   │   ├── flow-button.js
+│   │   ├── flow-call-button.js
+│   │   ├── flow-floating-call-button.js
+│   │   ├── flow-navbar.js
+│   │   ├── flow-scroll-to-top.js
+│   │   ├── service-highlights.js
+│   │   └── index.js       # Component registry & exports
+│   └── styles/            # Modular CSS (PostCSS + Tailwind)
+│       ├── main.css
+│       ├── base/
+│       ├── components/
+│       ├── layout/
+│       └── utilities/
+├── tests/
+│   ├── unit/index.js      # Component registry smoke tests
+│   └── integration/index.js
+├── index.html             # Main HTML entry point
+├── vite.config.mjs        # Vite configuration
+└── vitest.config.js       # Vitest (browser + node projects)
+```
 
 ## 🎨 Design System
 
@@ -222,17 +231,31 @@ Components follow [Flowbite](https://flowbite.com/) design patterns and use Tail
 - **Dark mode** support
 - **Professional** appearance
 
+## 🧪 Testing
+
 ```bash
+# Run all tests (node + browser)
 npm run test
+
+# Run only node/jsdom tests (no Playwright required)
+npx vitest run --project node
 ```
 
-Test files should be placed alongside components with `.test.js` suffix.
+Two test projects are configured in `vitest.config.js`:
+
+| Project | Runner | Includes |
+|---|---|---|
+| `browser` | Playwright Chromium | `flow-attorney-card.test.js`, `*.dom.test.js` |
+| `node` | Node + jsdom | All other `*.test.js` + `tests/**/*.js` |
+
+Test files live alongside their components with a `.test.js` suffix.
+
+> **First-time setup:** Run `npx playwright install chromium` once to enable the browser project.
 
 ## 📖 Documentation
 
-- **Live Demo**: Available in development server
-- **Component Library**: Accessible via Storybook
-- **API Documentation**: Auto-generated in Storybook docs
+- **Live Demo**: `npm run dev` → `http://localhost:5173`
+- **Component Docs**: `/docs` directory
 
 ## 🚀 Deployment
 
@@ -276,13 +299,7 @@ VITE_BASE_PATH=/custom-path/
 
 An example file is provided at `.env.production.example`.
 
-### Deploy Storybook (optional)
 
-```bash
-npm run build-storybook
-```
-
-Outputs: `dist/` (app) and `storybook-static/` (Storybook).
 
 ## 🤝 Contributing
 
@@ -291,10 +308,9 @@ Outputs: `dist/` (app) and `storybook-static/` (Storybook).
 3. Make your changes
 4. Add tests if applicable
 5. Run tests: `npm run test`
-6. Format code: `npm run format`
-7. Commit changes: `git commit -am 'Add feature'`
-8. Push to branch: `git push origin feature-name`
-9. Submit a pull request
+6. Commit changes: `git commit -am 'Add feature'`
+7. Push to branch: `git push origin feature-name`
+8. Submit a pull request
 
 ## 📄 License
 
@@ -305,9 +321,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [Vite](https://vitejs.dev/) - Lightning fast build tool
 - [Lit](https://lit.dev/) - Simple, fast web components
 - [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
-- [Storybook](https://storybook.js.org/) - Component development environment
 - [Flowbite](https://flowbite.com/) - Component design patterns
-
-```bash
-
-```
+- [Vitest](https://vitest.dev/) - Fast unit testing
+- [Playwright](https://playwright.dev/) - Browser automation
