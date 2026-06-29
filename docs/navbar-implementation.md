@@ -20,7 +20,7 @@ I have successfully implemented the navigation bar feature for Law Offices of Ca
 
 #### ✅ Call-to-Action Button
 
-- **Phone button** with "Call (555) 555-5555" text
+- **Phone button** with "Call (503) 288-9291" text
 - **Animated phone icon** that buzzes every 5 seconds
 - **Hover animations** for the phone icon
 - **Click-to-call functionality** using `tel:` links
@@ -91,12 +91,6 @@ Created temporary content sections as requested:
 - **Event handling** for mobile menu and navigation
 - **Smooth scrolling** implementation
 
-#### ✅ Storybook Integration
-
-- **Component stories** for development and documentation
-- **Different viewports** for testing responsiveness
-- **Interactive controls** for component properties
-
 #### ✅ Mobile-First Responsive Design
 
 - **Mobile-first** CSS approach
@@ -137,10 +131,13 @@ The navbar component is automatically loaded and ready to use:
 
 ### 🌐 Live Demo
 
-The implementation is now live and running on the development server at:
+Start the development server:
+
+```bash
+npm run dev
+```
 
 - **Main site**: http://localhost:5173
-- **Storybook**: http://localhost:6006 (when running)
 
 ### 🚀 Next Steps
 

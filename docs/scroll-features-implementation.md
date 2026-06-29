@@ -86,9 +86,8 @@ this._intersectionObserver = new IntersectionObserver((entries) => {
 ### **File Structure:**
 
 - **`flow-navbar.js`**: Updated with clickable company name
-- **`flow-scroll-to-top.js`**: New component for scroll button
-- **`flow-scroll-to-top.stories.js`**: Storybook stories and demos
-- **`index.html`**: Added scroll-to-top component
+- **`flow-scroll-to-top.js`**: Scroll-to-top button component
+- **`index.html`**: Added `<flow-scroll-to-top>` element
 - **`app.main.js`**: Event handling for both features
 
 ### **Event System:**
@@ -126,18 +125,6 @@ this.dispatchEvent(new CustomEvent('flow-scroll-top-click', {
 - **Focus Indicators**: Clear focus states for keyboard users
 - **Reduced Motion**: Respects user motion preferences
 
-## 🧪 **Storybook Integration**
-
-### **Available Stories:**
-
-1. **Default**: Hidden state
-2. **Visible**: Shown state
-3. **ScrollDemo**: Interactive full-height demo showing the intersection observer behavior
-
-### **Interactive Demo:**
-
-The ScrollDemo story shows a realistic scenario where you can scroll past a hero section and see the button appear/disappear dynamically.
-
 ## 🎯 **User Experience**
 
 ### **Company Name Click:**
@@ -162,10 +149,6 @@ Both features are now active on the website:
   - **Click company name** in navbar to scroll to top
   - **Scroll down** past hero section to see scroll-to-top button appear
   - **Click scroll button** to smoothly return to top
-
-- **Storybook** (http://localhost:6006):
-  - **FlowScrollToTop component** with interactive demos
-  - **ScrollDemo story** showing realistic usage scenario
 
 ## 📊 **Analytics Tracking**
 

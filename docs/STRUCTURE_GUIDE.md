@@ -2,24 +2,35 @@
 
 This document outlines the enhanced project structure following modern best practices for static web applications.
 
-## 📁 New Directory Structure
+## 📁 Current Directory Structure
 
 ```
 src/
-├── assets/           # Static assets
-│   ├── images/       # Images and graphics
-│   └── icons/        # Icon files
-├── components/       # Reusable UI components
-│   ├── ui/          # Basic UI components (buttons, inputs)
-│   ├── layout/      # Layout components (header, footer, nav)
-│   └── index.js     # Component registry
-├── styles/          # CSS organization (existing)
-├── utils/           # Utility functions
-└── app.main.js          # Application entry point
+├── app.main.js          # Application entry point
+├── main.test.js         # App-level unit tests
+├── main.dom.test.js     # DOM interaction tests (browser)
+├── components/          # Lit web components
+│   ├── flow-alert.js
+│   ├── flow-attorney-card.js
+│   ├── flow-button.js
+│   ├── flow-call-button.js
+│   ├── flow-floating-call-button.js
+│   ├── flow-navbar.js
+│   ├── flow-scroll-to-top.js
+│   ├── flow-scales-icon.js  # Deprecated – inlined as static SVG in navbar
+│   ├── service-highlights.js
+│   ├── index.js             # Component registry & exports
+│   └── *.test.js            # Co-located component tests
+└── styles/              # Modular CSS (PostCSS + Tailwind)
+    ├── main.css
+    ├── base/            # reset, variables, typography
+    ├── components/      # hero, services, attorneys, etc.
+    ├── layout/          # sections, animations
+    └── utilities/       # responsive, scroll
 
 tests/
-├── unit/            # Unit tests
-└── integration/     # Integration tests
+├── unit/index.js        # Component registry smoke tests
+└── integration/index.js # App-level integration tests
 ```
 
 ## 🎯 Benefits of New Structure
@@ -107,10 +118,10 @@ cp .env.example .env.local
 
 ### **Component Development**
 
-1. Create component in appropriate folder
-2. Add to component index
-3. Write tests
-4. Document in Storybook
+1. Create component in `src/components/`
+2. Export from `src/components/index.js`
+3. Write co-located unit tests (`component.test.js`)
+4. Document in `/docs`
 
 ### **Style Development**
 
@@ -121,8 +132,7 @@ cp .env.example .env.local
 
 ## 📚 Documentation
 
-- Component docs in Storybook
-- API docs in `/docs`
+- Component docs in `/docs`
 - Setup guides in README
 - Architecture decisions in ADRs
 

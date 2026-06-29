@@ -16,9 +16,10 @@ I have successfully created a new `FlowCallButton` component that replaces the h
 
 #### ✅ **Multiple Variants**
 
-- **Primary**: Default green gradient (navbar style)
-- **Secondary**: Dark theme with purple accents
-- **Hero**: Blue-purple gradient for hero sections
+- **Primary**: Green gradient — default
+- **Secondary**: Dark theme with purple accent borders
+- **Hero**: Large call-to-action for the hero section
+- **Navbar**: Blue-purple gradient for the navigation bar
 
 #### ✅ **Size Options**
 
@@ -134,29 +135,9 @@ background: linear-gradient(135deg, #0d1117 0%, #161b22 100%);
 #### **Tracking Data**:
 
 - **Phone number** dialed
-- **Button variant** (primary/hero/secondary)
+- **Button variant** (primary/secondary/hero/navbar)
 - **Button size** (sm/md/lg/xl)
 - **Source location** (navbar/hero_section)
-
-### 🧪 **Storybook Integration**
-
-#### **Stories Available**:
-
-- **Default**: Standard navbar style
-- **Hero Style**: Large hero section button
-- **Secondary Style**: Dark theme variant
-- **All Sizes**: Size comparison view
-- **Custom Text**: Using slot content
-- **Full Width**: Mobile-friendly layout
-- **Disabled**: Non-interactive state
-
-#### **Interactive Controls**:
-
-- Phone number input
-- Size selector
-- Variant selector
-- Disabled toggle
-- Full width toggle
 
 ### 📱 **Responsive Design**
 
@@ -196,17 +177,15 @@ background: linear-gradient(135deg, #0d1117 0%, #161b22 100%);
 
 ### 🚀 **Live Demo**
 
-The new FlowCallButton component is now live and functional:
+Start the development server and open the main site:
+
+```bash
+npm run dev
+```
 
 - **Main Website**: http://localhost:5173
-
-  - **Navbar**: Primary variant call button
-  - **Hero Section**: Hero variant call button with xl size
-
-- **Storybook**: http://localhost:6006
-  - **Component Library**: All variants and sizes
-  - **Interactive Controls**: Test different configurations
-  - **Documentation**: Auto-generated API docs
+  - **Navbar**: `navbar` variant call button
+  - **Hero Section**: `hero` variant call button (`xl` size)
 
 ### ✨ **Result**
 

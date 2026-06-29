@@ -150,7 +150,7 @@ The footer includes special positioning logic for floating UI elements:
 The footer includes comprehensive test coverage:
 
 ```bash
-npm test src/components/footer.test.js
+npm run test:node
 ```
 
 ### Test Categories
