@@ -42,9 +42,15 @@ jobs:
         run: npm ci
 
       - name: Build for GitHub Pages
-        # Derive VITE_BASE_PATH automatically for non-root Pages sites so cloned template works without edits
+        # Determine the correct base path:
+        #  - Custom domain (public/CNAME present): deploy at root "/"
+        #  - User/org site (*.github.io repo): deploy at root "/"
+        #  - Project site: deploy under "/<repo>/"
         run: |
-          if [[ "${GITHUB_REPOSITORY##*/}" == *".github.io" ]]; then
+          if [[ -f public/CNAME ]]; then
+            echo "Custom domain detected ($(cat public/CNAME)); building at root base";
+            npm run build;
+          elif [[ "${GITHUB_REPOSITORY##*/}" == *".github.io" ]]; then
             echo "Building for user/organization root site";
             npm run build;
           else
