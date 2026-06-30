@@ -1,4 +1,6 @@
 import { defineConfig, loadEnv } from "vite";
+import { existsSync, readFileSync } from "node:fs";
+import { resolve } from "node:path";
 
 // Helper to normalize base path (always leading + trailing slash unless root)
 function normalizeBase(base) {
@@ -14,13 +16,22 @@ export default defineConfig(({ mode }) => {
   // Load all env vars (include those without VITE_ prefix so workflow injection works either way)
   const env = loadEnv(mode, process.cwd(), "");
 
+  // A custom domain (public/CNAME) is served from the site root, so it must
+  // always build at base "/" regardless of repo name or any injected base path.
+  const cnamePath = resolve(process.cwd(), "public", "CNAME");
+  const hasCustomDomain =
+    existsSync(cnamePath) && readFileSync(cnamePath, "utf8").trim().length > 0;
+
   // Priority order for determining base path:
-  // 1. Explicit VITE_BASE_PATH (set by GitHub Action or user .env.production)
-  // 2. If running in GitHub Actions with GITHUB_REPOSITORY (owner/repo) and repo is not a user/ org site, derive from repo name
-  // 3. Root '/'
+  // 1. Custom domain (public/CNAME present) -> always root '/'
+  // 2. Explicit VITE_BASE_PATH (set by GitHub Action or user .env.production)
+  // 3. If running in GitHub Actions with GITHUB_REPOSITORY (owner/repo) and repo is not a user/ org site, derive from repo name
+  // 4. Root '/'
   let derivedBase = env.VITE_BASE_PATH;
 
-  if (!derivedBase && env.GITHUB_REPOSITORY) {
+  if (hasCustomDomain) {
+    derivedBase = "/";
+  } else if (!derivedBase && env.GITHUB_REPOSITORY) {
     const repoName = env.GITHUB_REPOSITORY.split("/").pop();
     // user.github.io style repos should deploy at root
     if (repoName && !repoName.endsWith(".github.io")) {
