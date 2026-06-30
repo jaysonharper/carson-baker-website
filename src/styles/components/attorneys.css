@@ -1,0 +1,39 @@
+@layer components {
+  /* Attorney Preview - Container for web components */
+  .attorney-preview {
+    @apply grid md:grid-cols-2 gap-8;
+    /* Remove any default padding/margin that might interfere */
+    padding: 0;
+    margin: 0;
+  }
+
+  /* Ensure web components fit properly in the grid */
+  .attorney-preview flow-attorney-card {
+    display: block;
+    width: 100%;
+    height: auto;
+    min-height: 450px;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 767px) {
+    .attorney-preview {
+      @apply gap-6;
+    }
+
+    .attorney-preview flow-attorney-card {
+      min-height: 400px;
+    }
+  }
+
+  /* Enhanced mobile layout */
+  @media (max-width: 480px) {
+    .attorney-preview {
+      @apply grid-cols-1 gap-4;
+    }
+
+    .attorney-preview flow-attorney-card {
+      min-height: 350px;
+    }
+  }
+}

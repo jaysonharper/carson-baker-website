@@ -1,0 +1,20 @@
+@layer base {
+  html,
+  body {
+    @apply h-full m-0 font-sans;
+    scroll-behavior: smooth;
+    /* Cross-browser font rendering */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    /* Prevent zoom issues */
+    text-size-adjust: 100%;
+  }
+
+  * {
+    box-sizing: border-box;
+    /* Consistent rendering across browsers */
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+  }
+}

@@ -1,0 +1,48 @@
+@layer components {
+  /* Hero Section */
+  .hero-section {
+    @apply min-h-screen flex items-center justify-center;
+    background-image: url("/images/dark-office.jpeg");
+    background-size: cover; /* Ensures the image covers the section */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat;
+    padding-top: 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  .hero-content {
+    @apply max-w-4xl mx-auto px-6;
+    position: relative;
+    z-index: 1;
+    top: -210px;
+    visibility: visible;
+  }
+
+  .hero-title {
+    @apply md:text-6xl lg:text-7xl font-bold mb-6;
+    font-size: 3rem;
+    text-align: center;
+    line-height: 1.3;
+    background: var(--hero-text-title);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.3))
+      drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2))
+      drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+  }
+
+  .hero-actions {
+    @apply flex flex-col sm:flex-row gap-4 justify-center items-center;
+  }
+}
