@@ -373,17 +373,20 @@ export class FlowNavbar extends LitElement {
         <!-- Navigation Menu -->
         <div class="nav-menu ${this.mobileMenuOpen ? "active" : ""}">
           <div class="nav-links">
-            <a
-              href="#services"
-              class="nav-link"
-              @click="${this._handleNavClick}"
-              >Services</a
+            <a href="#why-us" class="nav-link" @click="${this._handleNavClick}"
+              >Why Us?</a
             >
             <a
               href="#attorneys"
               class="nav-link"
               @click="${this._handleNavClick}"
               >Attorneys</a
+            >
+            <a
+              href="#services"
+              class="nav-link"
+              @click="${this._handleNavClick}"
+              >Services</a
             >
             <a
               href="#testimonials"

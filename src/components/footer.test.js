@@ -21,8 +21,9 @@ beforeEach(() => {
           </div>
           <div class="flex justify-center mb-8">
             <nav class="flex flex-wrap justify-center gap-6 md:gap-8">
-              <a href="#services" class="text-gray-300 hover:text-white transition-colors duration-200 text-base">Services</a>
+              <a href="#why-us" class="text-gray-300 hover:text-white transition-colors duration-200 text-base">Why Us?</a>
               <a href="#attorneys" class="text-gray-300 hover:text-white transition-colors duration-200 text-base">Attorneys</a>
+              <a href="#services" class="text-gray-300 hover:text-white transition-colors duration-200 text-base">Services</a>
               <a href="#testimonials" class="text-gray-300 hover:text-white transition-colors duration-200 text-base">Testimonials</a>
               <a href="#find-us" class="text-gray-300 hover:text-white transition-colors duration-200 text-base">Find Us</a>
             </nav>
@@ -84,12 +85,13 @@ describe("Footer Structure and Content", () => {
     expect(desktopNav).toBeTruthy();
 
     const navLinks = desktopNav.querySelectorAll("a");
-    expect(navLinks).toHaveLength(4);
+    expect(navLinks).toHaveLength(5);
 
     const linkTexts = Array.from(navLinks).map((link) => link.textContent);
     expect(linkTexts).toEqual([
-      "Services",
+      "Why Us?",
       "Attorneys",
+      "Services",
       "Testimonials",
       "Find Us",
     ]);
@@ -99,8 +101,9 @@ describe("Footer Structure and Content", () => {
     const navLinks = document.querySelectorAll(".hidden.md\\:block nav a");
     const hrefs = Array.from(navLinks).map((link) => link.getAttribute("href"));
     expect(hrefs).toEqual([
-      "#services",
+      "#why-us",
       "#attorneys",
+      "#services",
       "#testimonials",
       "#find-us",
     ]);

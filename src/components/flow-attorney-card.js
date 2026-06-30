@@ -90,6 +90,10 @@ export class FlowAttorneyCard extends LitElement {
       object-position: center 0%; /* Moves the image down - face will be positioned lower in the circle */
     }
 
+    .attorney-image.jakob {
+      object-position: center 0%;
+    }
+
     .attorney-image:hover {
       transform: scale(1.05);
       border-color: var(--subsection-image-hover, #2563eb);
@@ -322,7 +326,7 @@ export class FlowAttorneyCard extends LitElement {
         },
         bubbles: true,
         composed: true,
-      })
+      }),
     );
   }
 
@@ -339,7 +343,7 @@ export class FlowAttorneyCard extends LitElement {
         },
         bubbles: true,
         composed: true,
-      })
+      }),
     );
   }
 
@@ -386,7 +390,7 @@ export class FlowAttorneyCard extends LitElement {
                 >
                   ${specialty}
                 </span>
-              `
+              `,
             ) || ""}
           </div>
         </div>

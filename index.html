@@ -91,6 +91,102 @@
         </div>
       </section>
 
+      <!-- Why Us Section -->
+      <section id="why-us" class="content-section">
+        <div class="section-container">
+          <h2 class="section-title">Why Us?</h2>
+          <div class="section-card">
+            <p class="section-description">
+              Accessible. Responsive. Multi-jurisdictional. When you work with
+              Carson, Seegmuller &amp; Baker, you get a hometown firm that stays
+              within reach and ready to act on what matters to you.
+            </p>
+            <div class="service-highlights">
+              <div class="highlight-item">
+                <div class="highlight-content">
+                  <div class="title-row">
+                    <h3>Accessible</h3>
+                  </div>
+                  <p class="highlight-summary">
+                    Approachable counsel and clear communication, so you always
+                    understand your options and the road ahead.
+                  </p>
+                </div>
+              </div>
+
+              <div class="highlight-item">
+                <div class="highlight-content">
+                  <div class="title-row">
+                    <h3>Responsive</h3>
+                  </div>
+                  <p class="highlight-summary">
+                    Prompt answers and steady guidance from a team that values
+                    your time and keeps you informed at every step.
+                  </p>
+                </div>
+              </div>
+
+              <div class="highlight-item">
+                <div class="highlight-content">
+                  <div class="title-row">
+                    <h3>Multi-jurisdictional</h3>
+                  </div>
+                  <p class="highlight-summary">
+                    Licensed to serve clients across Oregon and Washington,
+                    bridging both sides of the river with seamless
+                    representation.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Attorneys Section -->
+      <section id="attorneys" class="content-section bg-alternate">
+        <div class="section-container">
+          <h2 class="section-title">Meet Our Attorneys</h2>
+          <div class="section-card">
+            <p class="section-description">
+              Our team of dedicated attorneys brings decades of combined
+              experience across multiple practice areas. We pride ourselves on
+              providing personalized attention and strategic legal counsel to
+              every client.
+            </p>
+            <div class="attorney-preview">
+              <flow-attorney-card
+                name="Brett S. Carson"
+                email=""
+                image="./images/brettcarson.jpg"
+                image-alt="Brett S. Carson Profile"
+                image-class="brett"
+              ></flow-attorney-card>
+
+              <flow-attorney-card
+                name="Randall H. Baker"
+                email=""
+                image="./images/randallbaker.jpg"
+                image-alt="Randall H. Baker Profile"
+                image-class="randall"
+              ></flow-attorney-card>
+
+              <flow-attorney-card
+                name="Jakob Seegmuller"
+                email=""
+                image="./images/attorney-placeholder.svg"
+                image-alt="Jakob Seegmuller Profile"
+                image-class="jakob"
+                education='["Southern Oregon University B.A. Cum Laude", "Seattle University School of Law J.D."]'
+                admissions='["Oregon State Bar Association", "Washington State Bar Association"]'
+                memberships='["Multnomah Bar Association", "Clark County Bar Association"]'
+                biography="Jakob Seegmuller is an attorney who uses his extensive legal experience in estate planning and administration to help individuals and families plan for the future and navigate the loss of a loved one. Jakob's legal career began in Vancouver, Washington, where his practice focused on estate settlement and probate before incorporating estate planning. He returned to his hometown of Portland to get back to his roots while continuing to serve clients in Washington. For Jakob, the best part of his practice is helping individuals and families navigate the death of a loved one with clarity and confidence rather than confusion and frustration. When not at the office, Jakob and his wife Alexandra enjoy traveling to new destinations near and far from Italy to Vietnam to Peru. If he's ever near a body of water, Jakob's on the hunt for a SCUBA shop and the dive schedule. At home he enjoys sessions of Dungeons &amp; Dragons with friends, or an episode (or two) of Star Trek. His interest in tabletop roleplaying games has served him well in helping clients tell their family story through the development of their estate plans."
+              ></flow-attorney-card>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- Services Section -->
       <section id="services" class="content-section">
         <div class="section-container">
@@ -366,40 +462,8 @@
         </div>
       </section>
 
-      <!-- Attorneys Section -->
-      <section id="attorneys" class="content-section bg-alternate">
-        <div class="section-container">
-          <h2 class="section-title">Meet Our Attorneys</h2>
-          <div class="section-card">
-            <p class="section-description">
-              Our team of dedicated attorneys brings decades of combined
-              experience across multiple practice areas. We pride ourselves on
-              providing personalized attention and strategic legal counsel to
-              every client.
-            </p>
-            <div class="attorney-preview">
-              <flow-attorney-card
-                name="Brett S. Carson"
-                email="brett@cblawpdx.com"
-                image="./images/brettcarson.jpg"
-                image-alt="Brett S. Carson Profile"
-                image-class="brett"
-              ></flow-attorney-card>
-
-              <flow-attorney-card
-                name="Randall H. Baker"
-                email="randall@cblawpdx.com"
-                image="./images/randallbaker.jpg"
-                image-alt="Randall H. Baker Profile"
-                image-class="randall"
-              ></flow-attorney-card>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <!-- Testimonials Section -->
-      <section id="testimonials" class="content-section">
+      <section id="testimonials" class="content-section bg-alternate">
         <div class="section-container">
           <h2 class="section-title">Testimonials</h2>
           <div class="section-card">
@@ -430,7 +494,7 @@
       </section>
 
       <!-- Find Us Section -->
-      <section id="find-us" class="content-section bg-alternate">
+      <section id="find-us" class="content-section">
         <div class="section-container">
           <h2 class="section-title">Find Us</h2>
           <div class="section-card">
@@ -512,16 +576,22 @@
           <div class="flex justify-center mb-8">
             <nav class="flex flex-wrap justify-center gap-6 md:gap-8">
               <a
-                href="#services"
+                href="#why-us"
                 class="text-gray-300 hover:text-white transition-colors duration-200 text-base"
               >
-                Services
+                Why Us?
               </a>
               <a
                 href="#attorneys"
                 class="text-gray-300 hover:text-white transition-colors duration-200 text-base"
               >
                 Attorneys
+              </a>
+              <a
+                href="#services"
+                class="text-gray-300 hover:text-white transition-colors duration-200 text-base"
+              >
+                Services
               </a>
               <a
                 href="#testimonials"
